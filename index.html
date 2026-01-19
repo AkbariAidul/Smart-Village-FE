@@ -1,0 +1,1836 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Informasi Desa Sungai Pitung</title>
+    <link href="./dist/output.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Hide Scrollbar for cleaner look */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        /* Submenu hover fix */
+        .group\/submenu:hover > div {
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+        
+        .group\/submenu > div {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.2s, visibility 0.2s;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased flex flex-col min-h-screen">
+
+    <nav class="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 transition-all duration-300">
+        <div class="bg-slate-900 text-white text-[10px] md:text-[11px] py-2 px-3 md:px-6 flex justify-between items-center">
+            <div class="flex items-center gap-2 overflow-hidden flex-1">
+                <span class="bg-red-600 px-2 py-0.5 rounded text-[9px] md:text-[10px] font-bold animate-pulse whitespace-nowrap">INFO TERKINI</span>
+                <marquee class="max-w-xs md:max-w-md lg:max-w-xl text-[9px] md:text-[11px]">Penyaluran Bantuan Langsung Tunai (BLT) Tahap 1 dilaksanakan tanggal 20 Januari 2026 di Balai Desa. Harap membawa KTP & KK Asli.</marquee>
+            </div>
+            <div class="hidden md:flex gap-2 lg:gap-4 opacity-80 font-medium text-[10px] lg:text-sm whitespace-nowrap">
+                <span><i class="fa-regular fa-clock mr-1"></i> Senin - Jumat, 08:00 - 16:00 WITA</span>
+                <a href="tel:08123456789" class="hover:text-primary-400"><i class="fa-solid fa-phone mr-1"></i> Layanan Darurat</a>
+            </div>
+        </div>
+
+        <div class="container mx-auto px-3 md:px-6 h-16 md:h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2 md:gap-3 group flex-shrink-0">
+                <img src="https://ui-avatars.com/api/?name=S+P&background=10b981&color=fff&rounded=true&bold=true" alt="Logo" class="w-8 md:w-10 h-8 md:h-10 rounded-lg md:rounded-xl shadow-lg group-hover:rotate-12 transition-transform">
+                <div class="leading-tight hidden sm:block">
+                    <h1 class="font-bold text-sm md:text-lg text-slate-900 group-hover:text-primary-600 transition">Sungai Pitung</h1>
+                    <p class="text-[8px] md:text-[10px] font-bold text-slate-500 uppercase tracking-widest">Sistem Informasi Desa</p>
+                </div>
+            </a>
+
+            <div class="hidden lg:flex items-center gap-1 bg-slate-100 p-1 rounded-full border border-slate-200 overflow-x-auto no-scrollbar flex-shrink-0 max-w-[calc(100vw-400px)]">
+                <a href="index.html" class="px-4 lg:px-5 py-2 rounded-full bg-white shadow-sm text-primary-700 font-bold text-xs lg:text-sm flex-shrink-0">Beranda</a>
+                <a href="profil.html" class="px-4 lg:px-5 py-2 rounded-full text-slate-500 hover:text-slate-900 font-medium text-xs lg:text-sm transition flex-shrink-0">Profil Desa</a>
+                
+                <!-- Transparansi Submenu -->
+                <div class="relative group/submenu flex-shrink-0">
+                    <button class="px-4 lg:px-5 py-2 rounded-full text-slate-500 hover:text-slate-900 font-medium text-xs lg:text-sm transition flex items-center gap-1">
+                        Transparansi <i class="fa-solid fa-chevron-down text-[10px]"></i>
+                    </button>
+                    <div class="absolute left-0 top-full mt-1 w-48 bg-white rounded-2xl shadow-lg border border-slate-100 opacity-0 invisible group-hover/submenu:opacity-100 group-hover/submenu:visible transition-all duration-200 z-50">
+                        <a href="statistik.html" class="block px-4 py-3 text-slate-700 hover:bg-slate-50 font-medium text-sm transition rounded-t-2xl">Statistik</a>
+                        <a href="apbdes.html" class="block px-4 py-3 text-slate-700 hover:bg-slate-50 font-medium text-sm transition border-t border-slate-100">APBDes</a>
+                        <a href="penduduk.html" class="block px-4 py-3 text-slate-700 hover:bg-slate-50 font-medium text-sm transition border-t border-slate-100 rounded-b-2xl">Penduduk</a>
+                    </div>
+                </div>
+                
+                <a href="peta-potensi.html" class="px-4 lg:px-5 py-2 rounded-full text-slate-500 hover:text-slate-900 font-medium text-xs lg:text-sm transition flex-shrink-0">Potensi</a>
+                <a href="umkm.html" class="px-4 lg:px-5 py-2 rounded-full text-slate-500 hover:text-slate-900 font-medium text-xs lg:text-sm transition flex-shrink-0">UMKM</a>
+                <a href="partisipasi.html" class="px-4 lg:px-5 py-2 rounded-full text-slate-500 hover:text-slate-900 font-medium text-xs lg:text-sm transition flex-shrink-0">Partisipasi</a>
+                <a href="program-pemberdayaan.html" class="px-4 lg:px-5 py-2 rounded-full text-slate-500 hover:text-slate-900 font-medium text-xs lg:text-sm transition flex-shrink-0">Pemberdayaan</a>
+                
+                <!-- Informasi Submenu -->
+                <div class="relative group/submenu flex-shrink-0">
+                    <button class="px-4 lg:px-5 py-2 rounded-full text-slate-500 hover:text-slate-900 font-medium text-xs lg:text-sm transition flex items-center gap-1">
+                        Informasi <i class="fa-solid fa-chevron-down text-[10px]"></i>
+                    </button>
+                    <div class="absolute left-0 top-full mt-1 w-48 bg-white rounded-2xl shadow-lg border border-slate-100 opacity-0 invisible group-hover/submenu:opacity-100 group-hover/submenu:visible transition-all duration-200 z-50">
+                        <a href="berita.html" class="block px-4 py-3 text-slate-700 hover:bg-slate-50 font-medium text-sm transition rounded-t-2xl">Berita</a>
+                        <a href="kalender-kegiatan.html" class="block px-4 py-3 text-slate-700 hover:bg-slate-50 font-medium text-sm transition border-t border-slate-100">Kalender</a>
+                        <a href="galeri.html" class="block px-4 py-3 text-slate-700 hover:bg-slate-50 font-medium text-sm transition border-t border-slate-100">Galeri</a>
+                        <a href="faq.html" class="block px-4 py-3 text-slate-700 hover:bg-slate-50 font-medium text-sm transition border-t border-slate-100 rounded-b-2xl">FAQ</a>
+                    </div>
+                </div>
+                
+                <!-- Layanan Submenu -->
+                <div class="relative group/submenu flex-shrink-0">
+                    <button class="px-4 lg:px-5 py-2 rounded-full text-slate-500 hover:text-slate-900 font-medium text-xs lg:text-sm transition flex items-center gap-1">
+                        Layanan <i class="fa-solid fa-chevron-down text-[10px]"></i>
+                    </button>
+                    <div class="absolute left-0 top-full mt-1 w-48 bg-white rounded-2xl shadow-lg border border-slate-100 opacity-0 invisible group-hover/submenu:opacity-100 group-hover/submenu:visible transition-all duration-200 z-50">
+                        <a href="layanan-surat.html" class="block px-4 py-3 text-slate-700 hover:bg-slate-50 font-medium text-sm transition rounded-t-2xl">Buat Surat</a>
+                        <a href="cek-bansos.html" class="block px-4 py-3 text-slate-700 hover:bg-slate-50 font-medium text-sm transition border-t border-slate-100">Cek Bansos</a>
+                        <a href="pengaduan.html" class="block px-4 py-3 text-slate-700 hover:bg-slate-50 font-medium text-sm transition border-t border-slate-100 rounded-b-2xl">Pengaduan</a>
+                    </div>
+                </div>
+                
+                <a href="kontak.html" class="px-4 lg:px-5 py-2 rounded-full text-slate-500 hover:text-slate-900 font-medium text-xs lg:text-sm transition flex-shrink-0">Kontak</a>
+            </div>
+
+            <div class="flex items-center gap-2 md:gap-3">
+                <a href="layanan-surat.html" class="hidden md:flex items-center gap-1 lg:gap-2 bg-primary-600 text-white px-3 lg:px-6 py-2 lg:py-2.5 rounded-full font-bold text-xs lg:text-sm hover:bg-primary-700 transition shadow-lg shadow-primary-600/30">
+                    <i class="fa-regular fa-id-card"></i> <span class="hidden lg:inline">Layanan Warga</span>
+                </a>
+
+                <button id="mobileMenuBtn" class="lg:hidden p-2 hover:bg-slate-100 rounded-lg transition">
+                    <i class="fa-solid fa-bars text-xl text-slate-900"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden lg:hidden bg-white border-t border-slate-200 max-h-0 overflow-hidden transition-all duration-300">
+            <div class="container mx-auto px-3 py-4 space-y-2">
+                <a href="index.html" class="block px-4 py-3 rounded-lg bg-primary-50 text-primary-700 font-bold text-sm">Beranda</a>
+                <a href="profil.html" class="block px-4 py-3 rounded-lg text-slate-700 hover:bg-slate-50 font-medium text-sm transition">Profil Desa</a>
+                
+                <!-- Transparansi Mobile -->
+                <div class="space-y-1">
+                    <button onclick="toggleMobileSubmenu(this)" class="w-full text-left px-4 py-3 rounded-lg text-slate-700 hover:bg-slate-50 font-medium text-sm transition flex items-center justify-between">
+                        Transparansi <i class="fa-solid fa-chevron-down text-xs"></i>
+                    </button>
+                    <div class="hidden space-y-1 pl-4">
+                        <a href="statistik.html" class="block px-4 py-2 rounded-lg text-slate-600 hover:bg-slate-50 text-sm transition">Statistik</a>
+                        <a href="apbdes.html" class="block px-4 py-2 rounded-lg text-slate-600 hover:bg-slate-50 text-sm transition">APBDes</a>
+                        <a href="penduduk.html" class="block px-4 py-2 rounded-lg text-slate-600 hover:bg-slate-50 text-sm transition">Penduduk</a>
+                    </div>
+                </div>
+                
+                <a href="peta-potensi.html" class="block px-4 py-3 rounded-lg text-slate-700 hover:bg-slate-50 font-medium text-sm transition">Potensi</a>
+                <a href="umkm.html" class="block px-4 py-3 rounded-lg text-slate-700 hover:bg-slate-50 font-medium text-sm transition">UMKM</a>
+                <a href="partisipasi.html" class="block px-4 py-3 rounded-lg text-slate-700 hover:bg-slate-50 font-medium text-sm transition">Partisipasi</a>
+                <a href="program-pemberdayaan.html" class="block px-4 py-3 rounded-lg text-slate-700 hover:bg-slate-50 font-medium text-sm transition">Pemberdayaan</a>
+                
+                <!-- Informasi Mobile -->
+                <div class="space-y-1">
+                    <button onclick="toggleMobileSubmenu(this)" class="w-full text-left px-4 py-3 rounded-lg text-slate-700 hover:bg-slate-50 font-medium text-sm transition flex items-center justify-between">
+                        Informasi <i class="fa-solid fa-chevron-down text-xs"></i>
+                    </button>
+                    <div class="hidden space-y-1 pl-4">
+                        <a href="berita.html" class="block px-4 py-2 rounded-lg text-slate-600 hover:bg-slate-50 text-sm transition">Berita</a>
+                        <a href="kalender-kegiatan.html" class="block px-4 py-2 rounded-lg text-slate-600 hover:bg-slate-50 text-sm transition">Kalender</a>
+                        <a href="galeri.html" class="block px-4 py-2 rounded-lg text-slate-600 hover:bg-slate-50 text-sm transition">Galeri</a>
+                        <a href="faq.html" class="block px-4 py-2 rounded-lg text-slate-600 hover:bg-slate-50 text-sm transition">FAQ</a>
+                    </div>
+                </div>
+                
+                <!-- Layanan Mobile -->
+                <div class="space-y-1">
+                    <button onclick="toggleMobileSubmenu(this)" class="w-full text-left px-4 py-3 rounded-lg text-slate-700 hover:bg-slate-50 font-medium text-sm transition flex items-center justify-between">
+                        Layanan <i class="fa-solid fa-chevron-down text-xs"></i>
+                    </button>
+                    <div class="hidden space-y-1 pl-4">
+                        <a href="layanan-surat.html" class="block px-4 py-2 rounded-lg text-slate-600 hover:bg-slate-50 text-sm transition">Buat Surat</a>
+                        <a href="cek-bansos.html" class="block px-4 py-2 rounded-lg text-slate-600 hover:bg-slate-50 text-sm transition">Cek Bansos</a>
+                        <a href="pengaduan.html" class="block px-4 py-2 rounded-lg text-slate-600 hover:bg-slate-50 text-sm transition">Pengaduan</a>
+                    </div>
+                </div>
+                
+                <a href="kontak.html" class="block px-4 py-3 rounded-lg text-slate-700 hover:bg-slate-50 font-medium text-sm transition">Kontak</a>
+            </div>
+        </div>
+    </nav>
+
+    <script>
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            if (!mobileMenu.classList.contains('hidden')) {
+                mobileMenu.style.maxHeight = mobileMenu.scrollHeight + 'px';
+            } else {
+                mobileMenu.style.maxHeight = '0';
+            }
+        });
+        
+        function toggleMobileSubmenu(button) {
+            const submenu = button.nextElementSibling;
+            submenu.classList.toggle('hidden');
+            const icon = button.querySelector('i');
+            icon.classList.toggle('rotate-180');
+        }
+
+        // Desktop submenu hover handler - works on all pages
+        function setupDesktopSubmenu() {
+            const desktopNav = document.querySelector('.hidden.lg\\:flex.items-center');
+            if (desktopNav) {
+                const submenuGroups = desktopNav.querySelectorAll('.group\\/submenu');
+                submenuGroups.forEach(group => {
+                    const button = group.querySelector('button');
+                    const dropdown = group.querySelector('div[class*="absolute"]');
+                    
+                    if (button && dropdown) {
+                        group.addEventListener('mouseenter', () => {
+                            dropdown.style.opacity = '1';
+                            dropdown.style.visibility = 'visible';
+                        });
+                        
+                        group.addEventListener('mouseleave', () => {
+                            dropdown.style.opacity = '0';
+                            dropdown.style.visibility = 'hidden';
+                        });
+                    }
+                });
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            setupDesktopSubmenu();
+            highlightActiveSubmenu();
+        });
+        
+        // Also setup on page load in case DOMContentLoaded already fired
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', setupDesktopSubmenu);
+        } else {
+            setupDesktopSubmenu();
+        }
+
+        // Highlight active submenu parent based on current page
+        function highlightActiveSubmenu() {
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            
+            // Define submenu mappings
+            const submenuMap = {
+                'statistik.html': 'Transparansi',
+                'apbdes.html': 'Transparansi',
+                'penduduk.html': 'Transparansi',
+                'berita.html': 'Informasi',
+                'kalender-kegiatan.html': 'Informasi',
+                'galeri.html': 'Informasi',
+                'faq.html': 'Informasi',
+                'layanan-surat.html': 'Layanan',
+                'cek-bansos.html': 'Layanan',
+                'pengaduan.html': 'Layanan'
+            };
+            
+            // Handle standalone menu items (Beranda, Profil Desa, Kontak)
+            const standaloneMenus = {
+                'index.html': 'Beranda',
+                'profil.html': 'Profil Desa',
+                'kontak.html': 'Kontak'
+            };
+            
+            // Check if current page is a standalone menu
+            if (standaloneMenus[currentPage]) {
+                const desktopNav = document.querySelector('.hidden.lg\\:flex.items-center');
+                if (desktopNav) {
+                    const links = desktopNav.querySelectorAll('a');
+                    links.forEach(link => {
+                        if (link.getAttribute('href') === currentPage) {
+                            link.classList.add('bg-white', 'shadow-sm', 'text-primary-700', 'font-bold');
+                            link.classList.remove('text-slate-500');
+                        }
+                    });
+                }
+                
+                // Mobile highlight
+                const mobileMenu = document.getElementById('mobileMenu');
+                if (mobileMenu) {
+                    const links = mobileMenu.querySelectorAll('a');
+                    links.forEach(link => {
+                        if (link.getAttribute('href') === currentPage) {
+                            link.classList.add('bg-primary-50', 'text-primary-700', 'font-bold');
+                            link.classList.remove('text-slate-700');
+                        }
+                    });
+                }
+                return;
+            }
+            
+            const submenuType = submenuMap[currentPage];
+            if (!submenuType) return;
+            
+            // Desktop: Find and highlight the correct submenu button
+            const desktopNav = document.querySelector('.hidden.lg\\:flex.items-center');
+            if (desktopNav) {
+                const buttons = desktopNav.querySelectorAll('button');
+                buttons.forEach(button => {
+                    if (button.textContent.includes(submenuType)) {
+                        button.classList.add('bg-white', 'shadow-sm', 'text-primary-700', 'font-bold');
+                        button.classList.remove('text-slate-500');
+                        
+                        // Also highlight the active submenu item
+                        const dropdown = button.parentElement.querySelector('div[class*="absolute"]');
+                        if (dropdown) {
+                            const links = dropdown.querySelectorAll('a');
+                            links.forEach(link => {
+                                if (link.getAttribute('href') === currentPage) {
+                                    link.classList.add('bg-primary-50', 'text-primary-700', 'font-bold');
+                                    link.classList.remove('text-slate-700');
+                                }
+                            });
+                        }
+                    }
+                });
+            }
+            
+            // Mobile: Find and highlight the correct submenu button
+            const mobileMenu = document.getElementById('mobileMenu');
+            if (mobileMenu) {
+                const buttons = mobileMenu.querySelectorAll('button[onclick="toggleMobileSubmenu(this)"]');
+                buttons.forEach(button => {
+                    if (button.textContent.includes(submenuType)) {
+                        button.classList.add('text-primary-700', 'font-bold');
+                        button.classList.remove('text-slate-700');
+                    }
+                });
+            }
+        }
+
+        // Run on page load
+        document.addEventListener('DOMContentLoaded', highlightActiveSubmenu);
+    </script>
+
+    <header class="relative mt-32 mb-12 container mx-auto px-3 sm:px-6">
+        <div class="flex items-center justify-center gap-1 sm:gap-2 md:gap-3">
+            <!-- Left Arrow -->
+            <button onclick="prevSlide()" class="flex-shrink-0 bg-black/40 hover:bg-black/60 text-white w-8 sm:w-10 h-8 sm:h-10 rounded-full flex items-center justify-center transition border border-white/30 text-sm sm:text-base shadow-lg hover:scale-110">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
+
+            <!-- Carousel Container -->
+            <div class="relative flex-1 h-56 sm:h-80 md:h-[500px] rounded-2xl sm:rounded-[2.5rem] overflow-hidden shadow-2xl shadow-slate-200 group">
+            
+            <div id="carouselSlides" class="flex transition-transform duration-700 ease-in-out h-full">
+                
+                <div class="min-w-full h-full relative">
+                    <div class="absolute inset-0 bg-slate-900/40 z-10"></div> <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=2000" class="w-full h-full object-cover" alt="Desa">
+                    <div class="absolute inset-0 z-20 flex flex-col justify-center px-4 sm:px-10 md:px-20 text-white">
+                        <span class="bg-primary-600 w-fit px-2 sm:px-3 py-0.5 sm:py-1 rounded-lg text-[10px] sm:text-xs font-bold uppercase mb-2 sm:mb-4 shadow-lg">Website Resmi</span>
+                        <h2 class="text-2xl sm:text-4xl md:text-6xl font-extrabold mb-2 sm:mb-4 leading-tight">Selamat Datang di <br>Desa Sungai Pitung</h2>
+                        <p class="text-xs sm:text-lg md:text-xl opacity-90 max-w-2xl mb-4 sm:mb-8 line-clamp-2 sm:line-clamp-none">Mewujudkan tata kelola pemerintahan desa yang transparan, akuntabel, dan melayani masyarakat berbasis teknologi.</p>
+                        <div class="flex gap-2 sm:gap-4">
+                            <a href="#layanan" class="bg-white text-slate-900 px-3 sm:px-6 py-2 sm:py-3 rounded-full font-bold text-xs sm:text-base hover:bg-slate-100 transition">Akses Layanan</a>
+                            <a href="profil.html" class="bg-white/20 backdrop-blur border border-white/30 text-white px-3 sm:px-6 py-2 sm:py-3 rounded-full font-bold text-xs sm:text-base hover:bg-white/30 transition">Profil Desa</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="min-w-full h-full relative">
+                    <div class="absolute inset-0 bg-slate-900/50 z-10"></div>
+                    <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?q=80&w=2000" class="w-full h-full object-cover" alt="Pertanian">
+                    <div class="absolute inset-0 z-20 flex flex-col justify-center px-4 sm:px-10 md:px-20 text-white">
+                        <span class="bg-orange-500 w-fit px-2 sm:px-3 py-0.5 sm:py-1 rounded-lg text-[10px] sm:text-xs font-bold uppercase mb-2 sm:mb-4 shadow-lg">Potensi Desa</span>
+                        <h2 class="text-2xl sm:text-4xl md:text-6xl font-extrabold mb-2 sm:mb-4 leading-tight">Pusat Pertanian & <br>Perkebunan Jeruk</h2>
+                        <p class="text-xs sm:text-lg md:text-xl opacity-90 max-w-2xl mb-4 sm:mb-8 line-clamp-2 sm:line-clamp-none">Jelajahi potensi alam Desa Sungai Pitung sebagai sentra penghasil jeruk siam banjar dan lumbung padi daerah.</p>
+                        <a href="peta-potensi.html" class="w-fit bg-orange-500 text-white px-3 sm:px-8 py-2 sm:py-3 rounded-full font-bold text-xs sm:text-base hover:bg-orange-600 transition shadow-lg">Lihat Peta Potensi</a>
+                    </div>
+                </div>
+
+                <div class="min-w-full h-full relative">
+                    <div class="absolute inset-0 bg-blue-900/60 z-10"></div>
+                    <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=2000" class="w-full h-full object-cover" alt="Rapat">
+                    <div class="absolute inset-0 z-20 flex flex-col justify-center px-4 sm:px-10 md:px-20 text-white">
+                        <span class="bg-blue-500 w-fit px-2 sm:px-3 py-0.5 sm:py-1 rounded-lg text-[10px] sm:text-xs font-bold uppercase mb-2 sm:mb-4 shadow-lg">Transparansi Publik</span>
+                        <h2 class="text-2xl sm:text-4xl md:text-6xl font-extrabold mb-2 sm:mb-4 leading-tight">Pengelolaan Dana Desa <br>Yang Terbuka</h2>
+                        <p class="text-xs sm:text-lg md:text-xl opacity-90 max-w-2xl mb-4 sm:mb-8 line-clamp-2 sm:line-clamp-none">Pantau realisasi Anggaran Pendapatan dan Belanja Desa (APBDes) secara real-time demi pembangunan yang akuntabel.</p>
+                        <a href="statistik.html" class="w-fit bg-blue-600 text-white px-3 sm:px-8 py-2 sm:py-3 rounded-full font-bold text-xs sm:text-base hover:bg-blue-700 transition shadow-lg">Lihat Data Statistik</a>
+                    </div>
+                </div>
+
+                <!-- Duplicate first slide for infinite loop -->
+                <div class="min-w-full h-full relative">
+                    <div class="absolute inset-0 bg-slate-900/40 z-10"></div> <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb7d5b43?q=80&w=2000" class="w-full h-full object-cover" alt="Desa">
+                    <div class="absolute inset-0 z-20 flex flex-col justify-center px-4 sm:px-10 md:px-20 text-white">
+                        <span class="bg-primary-600 w-fit px-2 sm:px-3 py-0.5 sm:py-1 rounded-lg text-[10px] sm:text-xs font-bold uppercase mb-2 sm:mb-4 shadow-lg">Website Resmi</span>
+                        <h2 class="text-2xl sm:text-4xl md:text-6xl font-extrabold mb-2 sm:mb-4 leading-tight">Selamat Datang di <br>Desa Sungai Pitung</h2>
+                        <p class="text-xs sm:text-lg md:text-xl opacity-90 max-w-2xl mb-4 sm:mb-8 line-clamp-2 sm:line-clamp-none">Mewujudkan tata kelola pemerintahan desa yang transparan, akuntabel, dan melayani masyarakat berbasis teknologi.</p>
+                        <div class="flex gap-2 sm:gap-4">
+                            <a href="#layanan" class="bg-white text-slate-900 px-3 sm:px-6 py-2 sm:py-3 rounded-full font-bold text-xs sm:text-base hover:bg-slate-100 transition">Akses Layanan</a>
+                            <a href="profil.html" class="bg-white/20 backdrop-blur border border-white/30 text-white px-3 sm:px-6 py-2 sm:py-3 rounded-full font-bold text-xs sm:text-base hover:bg-white/30 transition">Profil Desa</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Indicators -->
+            <div class="absolute bottom-6 sm:bottom-8 md:bottom-10 left-1/2 -translate-x-1/2 z-30 flex gap-1.5 sm:gap-2">
+                <button onclick="goToSlide(0)" class="indicator w-2.5 sm:w-3.5 h-2.5 sm:h-3.5 rounded-full bg-white shadow-lg border border-white/50 transition-all hover:scale-125 active-indicator"></button>
+                <button onclick="goToSlide(1)" class="indicator w-2.5 sm:w-3.5 h-2.5 sm:h-3.5 rounded-full bg-white/60 shadow-md border border-white/30 transition-all hover:scale-125 hover:bg-white/80"></button>
+                <button onclick="goToSlide(2)" class="indicator w-2.5 sm:w-3.5 h-2.5 sm:h-3.5 rounded-full bg-white/60 shadow-md border border-white/30 transition-all hover:scale-125 hover:bg-white/80"></button>
+            </div>
+            </div>
+
+            <!-- Right Arrow -->
+            <button onclick="nextSlide()" class="flex-shrink-0 bg-black/40 hover:bg-black/60 text-white w-8 sm:w-10 h-8 sm:h-10 rounded-full flex items-center justify-center transition border border-white/30 text-sm sm:text-base shadow-lg hover:scale-110">
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
+        </div>
+    </header>
+
+    <div class="flex-grow">
+    <section id="layanan" class="container mx-auto px-6 -mt-2 relative z-30 mb-20">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            <div class="bg-white p-8 rounded-[2rem] shadow-xl shadow-slate-200 border border-slate-100 hover:-translate-y-2 transition-all duration-300 group">
+                <div class="flex justify-between items-start mb-4">
+                    <div class="w-14 h-14 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center text-2xl group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                        <i class="fa-regular fa-envelope"></i>
+                    </div>
+                    <i class="fa-solid fa-arrow-right text-slate-300 group-hover:text-blue-600 transition -rotate-45 group-hover:rotate-0"></i>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 mb-2">Buat Surat Online</h3>
+                <p class="text-slate-500 text-sm mb-6">Urus surat pengantar, domisili, dan usaha dari rumah tanpa antri.</p>
+                <a href="layanan-surat.html" class="block text-center bg-slate-50 text-slate-700 font-bold py-3 rounded-xl hover:bg-blue-600 hover:text-white transition">Ajukan Sekarang</a>
+            </div>
+
+            <div class="bg-white p-8 rounded-[2rem] shadow-xl shadow-slate-200 border border-slate-100 hover:-translate-y-2 transition-all duration-300 group">
+                <div class="flex justify-between items-start mb-4">
+                    <div class="w-14 h-14 bg-red-50 text-red-600 rounded-2xl flex items-center justify-center text-2xl group-hover:bg-red-600 group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-hand-holding-heart"></i>
+                    </div>
+                    <i class="fa-solid fa-arrow-right text-slate-300 group-hover:text-red-600 transition -rotate-45 group-hover:rotate-0"></i>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 mb-2">Cek Bansos</h3>
+                <p class="text-slate-500 text-sm mb-6">Transparansi bantuan sosial. Cek status penerimaan Anda via NIK.</p>
+                <a href="cek-bansos.html" class="block text-center bg-slate-50 text-slate-700 font-bold py-3 rounded-xl hover:bg-red-600 hover:text-white transition">Cek Data</a>
+            </div>
+
+            <div class="bg-white p-8 rounded-[2rem] shadow-xl shadow-slate-200 border border-slate-100 hover:-translate-y-2 transition-all duration-300 group">
+                <div class="flex justify-between items-start mb-4">
+                    <div class="w-14 h-14 bg-orange-50 text-orange-600 rounded-2xl flex items-center justify-center text-2xl group-hover:bg-orange-600 group-hover:text-white transition-colors">
+                        <i class="fa-regular fa-comment-dots"></i>
+                    </div>
+                    <i class="fa-solid fa-arrow-right text-slate-300 group-hover:text-orange-600 transition -rotate-45 group-hover:rotate-0"></i>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 mb-2">Layanan Pengaduan</h3>
+                <p class="text-slate-500 text-sm mb-6">Sampaikan aspirasi, kritik, dan saran untuk kemajuan desa kita.</p>
+                <a href="pengaduan.html" class="block text-center bg-slate-50 text-slate-700 font-bold py-3 rounded-xl hover:bg-orange-600 hover:text-white transition">Lapor Masalah</a>
+            </div>
+
+        </div>
+    </section>
+    <section class="py-16 bg-gradient-to-b from-white to-slate-50 border-t border-slate-200">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-blue-600 font-bold tracking-widest text-xs uppercase mb-2 block">Komitmen Global</span>
+                <h2 class="text-3xl font-extrabold text-slate-900">SDGs - Sustainable Development Goals</h2>
+                <p class="text-slate-500 mt-2">Kontribusi Desa Sungai Pitung terhadap 17 Tujuan Pembangunan Berkelanjutan PBB.</p>
+            </div>
+
+            <!-- SDGS Grid 17 Goals -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 mb-12">
+                <!-- SDG 1: No Poverty -->
+                <div class="group cursor-pointer">
+                    <div class="bg-gradient-to-br from-red-600 to-red-700 rounded-2xl p-6 h-32 flex flex-col items-center justify-center text-white shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all relative overflow-hidden">
+                        <div class="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition"></div>
+                        <i class="fa-solid fa-hand-holding-heart text-3xl mb-2 relative z-10"></i>
+                        <p class="text-xs font-bold text-center relative z-10">Tanpa Kemiskinan</p>
+                    </div>
+                    <p class="text-xs text-slate-600 mt-2 text-center font-medium bg-red-50 py-2 px-2 rounded-lg">45% Keluarga Sejahtera</p>
+                </div>
+
+                <!-- SDG 2: Zero Hunger -->
+                <div class="group cursor-pointer">
+                    <div class="bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-2xl p-6 h-32 flex flex-col items-center justify-center text-white shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all relative overflow-hidden">
+                        <div class="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition"></div>
+                        <i class="fa-solid fa-wheat-awn text-3xl mb-2 relative z-10"></i>
+                        <p class="text-xs font-bold text-center relative z-10">Tanpa Kelaparan</p>
+                    </div>
+                    <p class="text-xs text-slate-600 mt-2 text-center font-medium bg-yellow-50 py-2 px-2 rounded-lg">Produksi Pangan +15%</p>
+                </div>
+
+                <!-- SDG 3: Good Health -->
+                <div class="group cursor-pointer">
+                    <div class="bg-gradient-to-br from-green-600 to-green-700 rounded-2xl p-6 h-32 flex flex-col items-center justify-center text-white shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all relative overflow-hidden">
+                        <div class="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition"></div>
+                        <i class="fa-solid fa-heart-pulse text-3xl mb-2 relative z-10"></i>
+                        <p class="text-xs font-bold text-center relative z-10">Kesehatan Baik</p>
+                    </div>
+                    <p class="text-xs text-slate-600 mt-2 text-center font-medium bg-green-50 py-2 px-2 rounded-lg">Cakupan Imunisasi 95%</p>
+                </div>
+
+                <!-- SDG 4: Quality Education -->
+                <div class="group cursor-pointer">
+                    <div class="bg-gradient-to-br from-red-500 to-red-600 rounded-2xl p-6 h-32 flex flex-col items-center justify-center text-white shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all relative overflow-hidden">
+                        <div class="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition"></div>
+                        <i class="fa-solid fa-graduation-cap text-3xl mb-2 relative z-10"></i>
+                        <p class="text-xs font-bold text-center relative z-10">Pendidikan Berkualitas</p>
+                    </div>
+                    <p class="text-xs text-slate-600 mt-2 text-center font-medium bg-red-50 py-2 px-2 rounded-lg">APK SD 100%</p>
+                </div>
+
+                <!-- SDG 5: Gender Equality -->
+                <div class="group cursor-pointer">
+                    <div class="bg-gradient-to-br from-red-600 to-pink-600 rounded-2xl p-6 h-32 flex flex-col items-center justify-center text-white shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all relative overflow-hidden">
+                        <div class="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition"></div>
+                        <i class="fa-solid fa-venus text-3xl mb-2 relative z-10"></i>
+                        <p class="text-xs font-bold text-center relative z-10">Kesetaraan Gender</p>
+                    </div>
+                    <p class="text-xs text-slate-600 mt-2 text-center font-medium bg-pink-50 py-2 px-2 rounded-lg">Pemberdayaan Perempuan</p>
+                </div>
+
+                <!-- SDG 6: Clean Water -->
+                <div class="group cursor-pointer">
+                    <div class="bg-gradient-to-br from-blue-600 to-cyan-600 rounded-2xl p-6 h-32 flex flex-col items-center justify-center text-white shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all relative overflow-hidden">
+                        <div class="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition"></div>
+                        <i class="fa-solid fa-droplet text-3xl mb-2 relative z-10"></i>
+                        <p class="text-xs font-bold text-center relative z-10">Air Bersih</p>
+                    </div>
+                    <p class="text-xs text-slate-600 mt-2 text-center font-medium bg-cyan-50 py-2 px-2 rounded-lg">Akses 98%</p>
+                </div>
+
+                <!-- SDG 7: Affordable Energy -->
+                <div class="group cursor-pointer">
+                    <div class="bg-gradient-to-br from-yellow-600 to-orange-600 rounded-2xl p-6 h-32 flex flex-col items-center justify-center text-white shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all relative overflow-hidden">
+                        <div class="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition"></div>
+                        <i class="fa-solid fa-bolt text-3xl mb-2 relative z-10"></i>
+                        <p class="text-xs font-bold text-center relative z-10">Energi Terjangkau</p>
+                    </div>
+                    <p class="text-xs text-slate-600 mt-2 text-center font-medium bg-orange-50 py-2 px-2 rounded-lg">Listrik 100%</p>
+                </div>
+
+                <!-- SDG 8: Decent Work -->
+                <div class="group cursor-pointer">
+                    <div class="bg-gradient-to-br from-red-700 to-red-800 rounded-2xl p-6 h-32 flex flex-col items-center justify-center text-white shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all relative overflow-hidden">
+                        <div class="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition"></div>
+                        <i class="fa-solid fa-briefcase text-3xl mb-2 relative z-10"></i>
+                        <p class="text-xs font-bold text-center relative z-10">Pekerjaan Layak</p>
+                    </div>
+                    <p class="text-xs text-slate-600 mt-2 text-center font-medium bg-red-50 py-2 px-2 rounded-lg">45 UMKM Aktif</p>
+                </div>
+
+                <!-- SDG 9: Industry Innovation -->
+                <div class="group cursor-pointer">
+                    <div class="bg-gradient-to-br from-orange-600 to-red-600 rounded-2xl p-6 h-32 flex flex-col items-center justify-center text-white shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all relative overflow-hidden">
+                        <div class="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition"></div>
+                        <i class="fa-solid fa-gears text-3xl mb-2 relative z-10"></i>
+                        <p class="text-xs font-bold text-center relative z-10">Industri Inovasi</p>
+                    </div>
+                    <p class="text-xs text-slate-600 mt-2 text-center font-medium bg-orange-50 py-2 px-2 rounded-lg">Digitalisasi Desa</p>
+                </div>
+
+                <!-- SDG 10: Reduced Inequalities -->
+                <div class="group cursor-pointer">
+                    <div class="bg-gradient-to-br from-red-600 to-pink-700 rounded-2xl p-6 h-32 flex flex-col items-center justify-center text-white shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all relative overflow-hidden">
+                        <div class="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition"></div>
+                        <i class="fa-solid fa-people-group text-3xl mb-2 relative z-10"></i>
+                        <p class="text-xs font-bold text-center relative z-10">Kurangi Ketimpangan</p>
+                    </div>
+                    <p class="text-xs text-slate-600 mt-2 text-center font-medium bg-pink-50 py-2 px-2 rounded-lg">Inklusi Sosial</p>
+                </div>
+
+                <!-- SDG 11: Sustainable Cities -->
+                <div class="group cursor-pointer">
+                    <div class="bg-gradient-to-br from-yellow-700 to-orange-700 rounded-2xl p-6 h-32 flex flex-col items-center justify-center text-white shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all relative overflow-hidden">
+                        <div class="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition"></div>
+                        <i class="fa-solid fa-city text-3xl mb-2 relative z-10"></i>
+                        <p class="text-xs font-bold text-center relative z-10">Kota Berkelanjutan</p>
+                    </div>
+                    <p class="text-xs text-slate-600 mt-2 text-center font-medium bg-yellow-50 py-2 px-2 rounded-lg">Infrastruktur Desa</p>
+                </div>
+
+                <!-- SDG 12: Responsible Consumption -->
+                <div class="group cursor-pointer">
+                    <div class="bg-gradient-to-br from-orange-600 to-yellow-600 rounded-2xl p-6 h-32 flex flex-col items-center justify-center text-white shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all relative overflow-hidden">
+                        <div class="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition"></div>
+                        <i class="fa-solid fa-recycle text-3xl mb-2 relative z-10"></i>
+                        <p class="text-xs font-bold text-center relative z-10">Konsumsi Bertanggung</p>
+                    </div>
+                    <p class="text-xs text-slate-600 mt-2 text-center font-medium bg-yellow-50 py-2 px-2 rounded-lg">Program Daur Ulang</p>
+                </div>
+
+                <!-- SDG 13: Climate Action -->
+                <div class="group cursor-pointer">
+                    <div class="bg-gradient-to-br from-green-700 to-teal-700 rounded-2xl p-6 h-32 flex flex-col items-center justify-center text-white shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all relative overflow-hidden">
+                        <div class="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition"></div>
+                        <i class="fa-solid fa-leaf text-3xl mb-2 relative z-10"></i>
+                        <p class="text-xs font-bold text-center relative z-10">Aksi Iklim</p>
+                    </div>
+                    <p class="text-xs text-slate-600 mt-2 text-center font-medium bg-green-50 py-2 px-2 rounded-lg">Penghijauan 500 Pohon</p>
+                </div>
+
+                <!-- SDG 14: Life Below Water -->
+                <div class="group cursor-pointer">
+                    <div class="bg-gradient-to-br from-blue-700 to-cyan-700 rounded-2xl p-6 h-32 flex flex-col items-center justify-center text-white shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all relative overflow-hidden">
+                        <div class="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition"></div>
+                        <i class="fa-solid fa-water text-3xl mb-2 relative z-10"></i>
+                        <p class="text-xs font-bold text-center relative z-10">Kehidupan Air</p>
+                    </div>
+                    <p class="text-xs text-slate-600 mt-2 text-center font-medium bg-cyan-50 py-2 px-2 rounded-lg">Budidaya Ikan Rawa</p>
+                </div>
+
+                <!-- SDG 15: Life on Land -->
+                <div class="group cursor-pointer">
+                    <div class="bg-gradient-to-br from-green-600 to-lime-600 rounded-2xl p-6 h-32 flex flex-col items-center justify-center text-white shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all relative overflow-hidden">
+                        <div class="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition"></div>
+                        <i class="fa-solid fa-tree text-3xl mb-2 relative z-10"></i>
+                        <p class="text-xs font-bold text-center relative z-10">Kehidupan Darat</p>
+                    </div>
+                    <p class="text-xs text-slate-600 mt-2 text-center font-medium bg-green-50 py-2 px-2 rounded-lg">Konservasi Alam</p>
+                </div>
+
+                <!-- SDG 16: Peace Justice -->
+                <div class="group cursor-pointer">
+                    <div class="bg-gradient-to-br from-blue-800 to-indigo-800 rounded-2xl p-6 h-32 flex flex-col items-center justify-center text-white shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all relative overflow-hidden">
+                        <div class="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition"></div>
+                        <i class="fa-solid fa-handshake text-3xl mb-2 relative z-10"></i>
+                        <p class="text-xs font-bold text-center relative z-10">Perdamaian Keadilan</p>
+                    </div>
+                    <p class="text-xs text-slate-600 mt-2 text-center font-medium bg-blue-50 py-2 px-2 rounded-lg">Transparansi Desa</p>
+                </div>
+
+                <!-- SDG 17: Partnerships -->
+                <div class="group cursor-pointer">
+                    <div class="bg-gradient-to-br from-indigo-600 to-purple-600 rounded-2xl p-6 h-32 flex flex-col items-center justify-center text-white shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all relative overflow-hidden">
+                        <div class="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition"></div>
+                        <i class="fa-solid fa-link text-3xl mb-2 relative z-10"></i>
+                        <p class="text-xs font-bold text-center relative z-10">Kemitraan Global</p>
+                    </div>
+                    <p class="text-xs text-slate-600 mt-2 text-center font-medium bg-purple-50 py-2 px-2 rounded-lg">Kolaborasi Lintas Sektor</p>
+                </div>
+            </div>
+
+            <!-- SDGs Progress Summary -->
+            <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-[2rem] p-8 border border-blue-200">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                    <div class="text-center">
+                        <div class="text-4xl font-extrabold text-blue-600 mb-2">15/17</div>
+                        <p class="text-sm font-bold text-slate-700">SDGs Tercapai</p>
+                        <p class="text-xs text-slate-500 mt-1">88% Target Global</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl font-extrabold text-green-600 mb-2">↑ 23%</div>
+                        <p class="text-sm font-bold text-slate-700">Peningkatan Tahun Ini</p>
+                        <p class="text-xs text-slate-500 mt-1">Dibanding 2025</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl font-extrabold text-orange-600 mb-2">2</div>
+                        <p class="text-sm font-bold text-slate-700">SDGs Fokus</p>
+                        <p class="text-xs text-slate-500 mt-1">SDG 1 & 2 Prioritas</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl font-extrabold text-purple-600 mb-2">Rp 2.5M</div>
+                        <p class="text-sm font-bold text-slate-700">Investasi SDGs</p>
+                        <p class="text-xs text-slate-500 mt-1">Tahun 2026</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-white border-t border-slate-100">
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10 auto-rows-max">
+                <!-- UMKM Card 1 -->
+                <div class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-100 group overflow-hidden">
+                    <div class="p-6">
+                        <div class="flex items-start justify-between gap-3 mb-3">
+                            <div class="flex-1 min-w-0">
+                                <h3 class="font-bold text-base text-slate-900 group-hover:text-primary-600 transition line-clamp-2">Keripik Pisang Ibu Ani</h3>
+                                <p class="text-xs text-slate-500 mt-1 flex items-center gap-1">
+                                    <i class="fa-solid fa-location-dot text-primary-600 flex-shrink-0"></i> <span class="line-clamp-1">RT 02, Dusun 1</span>
+                                </p>
+                            </div>
+                            <span class="bg-orange-100 text-orange-600 px-2 py-1 rounded-full text-[10px] font-bold flex-shrink-0 whitespace-nowrap">Kuliner</span>
+                        </div>
+                        
+                        <p class="text-sm text-slate-600 mb-4 line-clamp-2">Keripik pisang manis tradisional dengan cita rasa autentik desa.</p>
+                        
+                        <div class="flex items-center justify-between pt-3 border-t border-slate-100">
+                            <div class="flex gap-2">
+                                <a href="https://wa.me/628123456789" onclick="event.stopPropagation()" class="w-9 h-9 rounded-full bg-green-500 text-white flex items-center justify-center hover:bg-green-600 transition flex-shrink-0 text-sm">
+                                    <i class="fa-brands fa-whatsapp"></i>
+                                </a>
+                                <a href="tel:08123456789" onclick="event.stopPropagation()" class="w-9 h-9 rounded-full bg-blue-500 text-white flex items-center justify-center hover:bg-blue-600 transition flex-shrink-0 text-sm">
+                                    <i class="fa-solid fa-phone"></i>
+                                </a>
+                            </div>
+                            <a href="umkm-detail.html?id=1" class="text-xs font-bold text-primary-600 hover:text-primary-700">Lihat Detail →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- UMKM Card 2 -->
+                <div class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-100 group overflow-hidden">
+                    <div class="p-6">
+                        <div class="flex items-start justify-between gap-3 mb-3">
+                            <div class="flex-1 min-w-0">
+                                <h3 class="font-bold text-base text-slate-900 group-hover:text-primary-600 transition line-clamp-2">KWT Melati - Tas Purun</h3>
+                                <p class="text-xs text-slate-500 mt-1 flex items-center gap-1">
+                                    <i class="fa-solid fa-location-dot text-primary-600 flex-shrink-0"></i> <span class="line-clamp-1">RT 04, Dusun 2</span>
+                                </p>
+                            </div>
+                            <span class="bg-purple-100 text-purple-600 px-2 py-1 rounded-full text-[10px] font-bold flex-shrink-0 whitespace-nowrap">Kerajinan</span>
+                        </div>
+                        
+                        <p class="text-sm text-slate-600 mb-4 line-clamp-2">Tas anyaman purun berkualitas tinggi dengan desain modern dan tradisional.</p>
+                        
+                        <div class="flex items-center justify-between pt-3 border-t border-slate-100">
+                            <div class="flex gap-2">
+                                <a href="https://wa.me/628123456789" onclick="event.stopPropagation()" class="w-9 h-9 rounded-full bg-green-500 text-white flex items-center justify-center hover:bg-green-600 transition flex-shrink-0 text-sm">
+                                    <i class="fa-brands fa-whatsapp"></i>
+                                </a>
+                                <a href="tel:08123456789" onclick="event.stopPropagation()" class="w-9 h-9 rounded-full bg-blue-500 text-white flex items-center justify-center hover:bg-blue-600 transition flex-shrink-0 text-sm">
+                                    <i class="fa-solid fa-phone"></i>
+                                </a>
+                            </div>
+                            <a href="umkm-detail.html?id=2" class="text-xs font-bold text-primary-600 hover:text-primary-700">Lihat Detail →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- UMKM Card 3 -->
+                <div class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-100 group overflow-hidden">
+                    <div class="p-6">
+                        <div class="flex items-start justify-between gap-3 mb-3">
+                            <div class="flex-1 min-w-0">
+                                <h3 class="font-bold text-base text-slate-900 group-hover:text-primary-600 transition line-clamp-2">Jeruk Siam Pak Hendra</h3>
+                                <p class="text-xs text-slate-500 mt-1 flex items-center gap-1">
+                                    <i class="fa-solid fa-location-dot text-primary-600 flex-shrink-0"></i> <span class="line-clamp-1">Dusun 1</span>
+                                </p>
+                            </div>
+                            <span class="bg-green-100 text-green-600 px-2 py-1 rounded-full text-[10px] font-bold flex-shrink-0 whitespace-nowrap">Pertanian</span>
+                        </div>
+                        
+                        <p class="text-sm text-slate-600 mb-4 line-clamp-2">Jeruk siam banjar segar langsung dari kebun dengan kualitas premium.</p>
+                        
+                        <div class="flex items-center justify-between pt-3 border-t border-slate-100">
+                            <div class="flex gap-2">
+                                <a href="https://wa.me/628123456789" onclick="event.stopPropagation()" class="w-9 h-9 rounded-full bg-green-500 text-white flex items-center justify-center hover:bg-green-600 transition flex-shrink-0 text-sm">
+                                    <i class="fa-brands fa-whatsapp"></i>
+                                </a>
+                                <a href="tel:08123456789" onclick="event.stopPropagation()" class="w-9 h-9 rounded-full bg-blue-500 text-white flex items-center justify-center hover:bg-blue-600 transition flex-shrink-0 text-sm">
+                                    <i class="fa-solid fa-phone"></i>
+                                </a>
+                            </div>
+                            <a href="umkm-detail.html?id=3" class="text-xs font-bold text-primary-600 hover:text-primary-700">Lihat Detail →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <a href="umkm.html" class="text-slate-500 font-bold hover:text-primary-600 transition text-sm">Lihat Semua UMKM Desa →</a>
+            </div>
+        </div>
+    </section>
+
+    </section>
+
+
+    <section class="py-16 bg-gradient-to-b from-slate-50 to-white border-t border-slate-200">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-green-600 font-bold tracking-widest text-xs uppercase mb-2 block">Data Langsung</span>
+                <h2 class="text-3xl font-extrabold text-slate-900">Dashboard Statistik Desa</h2>
+                <p class="text-slate-500 mt-2">Data terkini Desa Sungai Pitung diperbarui secara real-time setiap jam.</p>
+            </div>
+
+            <!-- Real-time Stats Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                <!-- Total Penduduk -->
+                <div class="bg-white rounded-2xl p-6 shadow-lg border border-slate-100 hover:shadow-xl transition-all group">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600 text-xl">
+                            <i class="fa-solid fa-people-group"></i>
+                        </div>
+                        <span class="text-xs font-bold text-green-600 bg-green-50 px-2 py-1 rounded-full">↑ 2.3%</span>
+                    </div>
+                    <h3 class="text-sm font-bold text-slate-600 mb-2">Total Penduduk</h3>
+                    <div class="text-4xl font-extrabold text-blue-600 mb-2">1,450</div>
+                    <p class="text-xs text-slate-500">Jiwa | Update: Hari ini 14:32</p>
+                </div>
+
+                <!-- Keluarga Sejahtera -->
+                <div class="bg-white rounded-2xl p-6 shadow-lg border border-slate-100 hover:shadow-xl transition-all group">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center text-green-600 text-xl">
+                            <i class="fa-solid fa-home"></i>
+                        </div>
+                        <span class="text-xs font-bold text-green-600 bg-green-50 px-2 py-1 rounded-full">↑ 5.1%</span>
+                    </div>
+                    <h3 class="text-sm font-bold text-slate-600 mb-2">Keluarga Sejahtera</h3>
+                    <div class="text-4xl font-extrabold text-green-600 mb-2">652</div>
+                    <p class="text-xs text-slate-500">KK | 45% dari total</p>
+                </div>
+
+                <!-- UMKM Aktif -->
+                <div class="bg-white rounded-2xl p-6 shadow-lg border border-slate-100 hover:shadow-xl transition-all group">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center text-orange-600 text-xl">
+                            <i class="fa-solid fa-store"></i>
+                        </div>
+                        <span class="text-xs font-bold text-green-600 bg-green-50 px-2 py-1 rounded-full">↑ 8.7%</span>
+                    </div>
+                    <h3 class="text-sm font-bold text-slate-600 mb-2">UMKM Aktif</h3>
+                    <div class="text-4xl font-extrabold text-orange-600 mb-2">45</div>
+                    <p class="text-xs text-slate-500">Unit | Omset Rp 2.3M</p>
+                </div>
+
+                <!-- Partisipasi Masyarakat -->
+                <div class="bg-white rounded-2xl p-6 shadow-lg border border-slate-100 hover:shadow-xl transition-all group">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center text-purple-600 text-xl">
+                            <i class="fa-solid fa-handshake"></i>
+                        </div>
+                        <span class="text-xs font-bold text-green-600 bg-green-50 px-2 py-1 rounded-full">↑ 12.4%</span>
+                    </div>
+                    <h3 class="text-sm font-bold text-slate-600 mb-2">Partisipasi Aktif</h3>
+                    <div class="text-4xl font-extrabold text-purple-600 mb-2">78%</div>
+                    <p class="text-xs text-slate-500">Warga | Musyawarah</p>
+                </div>
+            </div>
+
+            <!-- Detailed Statistics -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+                <!-- Demografi -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg border border-slate-100">
+                    <h3 class="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+                        <i class="fa-solid fa-chart-pie text-blue-600"></i> Demografi Penduduk
+                    </h3>
+                    
+                    <div class="space-y-4">
+                        <!-- Usia -->
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-sm font-bold text-slate-700">0-5 Tahun</span>
+                                <span class="text-sm font-bold text-slate-600">145 (10%)</span>
+                            </div>
+                            <div class="w-full bg-slate-200 rounded-full h-2">
+                                <div class="bg-red-500 h-2 rounded-full w-[10%]"></div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-sm font-bold text-slate-700">5-18 Tahun</span>
+                                <span class="text-sm font-bold text-slate-600">290 (20%)</span>
+                            </div>
+                            <div class="w-full bg-slate-200 rounded-full h-2">
+                                <div class="bg-yellow-500 h-2 rounded-full w-[20%]"></div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-sm font-bold text-slate-700">18-65 Tahun</span>
+                                <span class="text-sm font-bold text-slate-600">928 (64%)</span>
+                            </div>
+                            <div class="w-full bg-slate-200 rounded-full h-2">
+                                <div class="bg-green-500 h-2 rounded-full w-[64%]"></div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-sm font-bold text-slate-700">&gt; 65 Tahun</span>
+                                <span class="text-sm font-bold text-slate-600">87 (6%)</span>
+                            </div>
+                            <div class="w-full bg-slate-200 rounded-full h-2">
+                                <div class="bg-blue-500 h-2 rounded-full w-[6%]"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 pt-6 border-t border-slate-200">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-blue-600">725</div>
+                                <p class="text-xs text-slate-600 mt-1">Laki-laki (50%)</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-pink-600">725</div>
+                                <p class="text-xs text-slate-600 mt-1">Perempuan (50%)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pendidikan & Pekerjaan -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg border border-slate-100">
+                    <h3 class="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+                        <i class="fa-solid fa-graduation-cap text-purple-600"></i> Pendidikan & Pekerjaan
+                    </h3>
+                    
+                    <div class="space-y-4 mb-6">
+                        <!-- Pendidikan -->
+                        <div>
+                            <p class="text-xs font-bold text-slate-600 uppercase mb-3">Tingkat Pendidikan</p>
+                            <div class="space-y-2">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-sm text-slate-700">Tidak Sekolah</span>
+                                    <span class="text-sm font-bold text-slate-600">3%</span>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-sm text-slate-700">SD</span>
+                                    <span class="text-sm font-bold text-slate-600">25%</span>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-sm text-slate-700">SMP</span>
+                                    <span class="text-sm font-bold text-slate-600">35%</span>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-sm text-slate-700">SMA</span>
+                                    <span class="text-sm font-bold text-slate-600">28%</span>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-sm text-slate-700">S1+</span>
+                                    <span class="text-sm font-bold text-slate-600">9%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-6 border-t border-slate-200">
+                        <p class="text-xs font-bold text-slate-600 uppercase mb-3">Jenis Pekerjaan</p>
+                        <div class="space-y-2">
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-slate-700">Petani</span>
+                                <span class="text-sm font-bold text-slate-600">60%</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-slate-700">Pedagang</span>
+                                <span class="text-sm font-bold text-slate-600">15%</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-slate-700">PNS/Pegawai</span>
+                                <span class="text-sm font-bold text-slate-600">12%</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-slate-700">Lainnya</span>
+                                <span class="text-sm font-bold text-slate-600">13%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Infrastructure & Services -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Akses Air Bersih -->
+                <div class="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl p-6 border border-blue-200">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 bg-blue-200 rounded-lg flex items-center justify-center text-blue-600">
+                            <i class="fa-solid fa-droplet"></i>
+                        </div>
+                        <h4 class="font-bold text-slate-900">Air Bersih</h4>
+                    </div>
+                    <div class="text-3xl font-extrabold text-blue-600 mb-2">98%</div>
+                    <p class="text-xs text-slate-600">Akses rumah tangga</p>
+                    <div class="mt-4 pt-4 border-t border-blue-200">
+                        <p class="text-xs text-slate-600"><span class="font-bold">1,421</span> KK terlayani</p>
+                    </div>
+                </div>
+
+                <!-- Akses Listrik -->
+                <div class="bg-gradient-to-br from-yellow-50 to-orange-50 rounded-2xl p-6 border border-yellow-200">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 bg-yellow-200 rounded-lg flex items-center justify-center text-yellow-600">
+                            <i class="fa-solid fa-bolt"></i>
+                        </div>
+                        <h4 class="font-bold text-slate-900">Listrik</h4>
+                    </div>
+                    <div class="text-3xl font-extrabold text-yellow-600 mb-2">100%</div>
+                    <p class="text-xs text-slate-600">Akses rumah tangga</p>
+                    <div class="mt-4 pt-4 border-t border-yellow-200">
+                        <p class="text-xs text-slate-600"><span class="font-bold">1,450</span> KK terlayani</p>
+                    </div>
+                </div>
+
+                <!-- Akses Internet -->
+                <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-6 border border-purple-200">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 bg-purple-200 rounded-lg flex items-center justify-center text-purple-600">
+                            <i class="fa-solid fa-wifi"></i>
+                        </div>
+                        <h4 class="font-bold text-slate-900">Internet</h4>
+                    </div>
+                    <div class="text-3xl font-extrabold text-purple-600 mb-2">72%</div>
+                    <p class="text-xs text-slate-600">Akses rumah tangga</p>
+                    <div class="mt-4 pt-4 border-t border-purple-200">
+                        <p class="text-xs text-slate-600"><span class="font-bold">1,044</span> KK terlayani</p>
+                    </div>
+                </div>
+
+                <!-- Akses Kesehatan -->
+                <div class="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-6 border border-green-200">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 bg-green-200 rounded-lg flex items-center justify-center text-green-600">
+                            <i class="fa-solid fa-heart-pulse"></i>
+                        </div>
+                        <h4 class="font-bold text-slate-900">Kesehatan</h4>
+                    </div>
+                    <div class="text-3xl font-extrabold text-green-600 mb-2">95%</div>
+                    <p class="text-xs text-slate-600">Cakupan imunisasi</p>
+                    <div class="mt-4 pt-4 border-t border-green-200">
+                        <p class="text-xs text-slate-600"><span class="font-bold">1,378</span> anak terlindungi</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Last Update Info -->
+            <div class="mt-12 text-center">
+                <p class="text-sm text-slate-600">
+                    <i class="fa-solid fa-circle text-green-500 animate-pulse mr-2"></i>
+                    Data diperbarui secara real-time | Update terakhir: Hari ini 14:32 WITA
+                </p>
+                <a href="statistik.html" class="inline-flex items-center gap-2 text-primary-600 font-bold hover:underline mt-3">
+                    Lihat Statistik Lengkap <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-gradient-to-b from-slate-50 to-white border-t border-slate-200">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-indigo-600 font-bold tracking-widest text-xs uppercase mb-2 block">Akses Cepat</span>
+                <h2 class="text-3xl font-extrabold text-slate-900">Quick Links - Halaman Penting</h2>
+                <p class="text-slate-500 mt-2">Akses langsung ke semua halaman dan layanan penting Desa Sungai Pitung.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8 auto-rows-max">
+                <!-- Partisipasi Masyarakat -->
+                <a href="partisipasi.html" class="group bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-6 border border-blue-200 hover:shadow-lg hover:-translate-y-1 transition-all">
+                    <div class="w-12 h-12 bg-blue-600 text-white rounded-lg flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition">
+                        <i class="fa-solid fa-people-group"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-900 mb-2">Partisipasi Masyarakat</h3>
+                    <p class="text-sm text-slate-600 mb-4">Musyawarah, forum diskusi, dan polling aspirasi warga.</p>
+                    <span class="text-xs font-bold text-blue-600 flex items-center gap-1">Kunjungi <i class="fa-solid fa-arrow-right"></i></span>
+                </a>
+
+                <!-- Program Pemberdayaan -->
+                <a href="program-pemberdayaan.html" class="group bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-6 border border-green-200 hover:shadow-lg hover:-translate-y-1 transition-all">
+                    <div class="w-12 h-12 bg-green-600 text-white rounded-lg flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-900 mb-2">Program Pemberdayaan</h3>
+                    <p class="text-sm text-slate-600 mb-4">Pelatihan, keterampilan, dan pengembangan masyarakat.</p>
+                    <span class="text-xs font-bold text-green-600 flex items-center gap-1">Kunjungi <i class="fa-solid fa-arrow-right"></i></span>
+                </a>
+
+                <!-- Berita & Informasi -->
+                <a href="berita.html" class="group bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl p-6 border border-orange-200 hover:shadow-lg hover:-translate-y-1 transition-all">
+                    <div class="w-12 h-12 bg-orange-600 text-white rounded-lg flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition">
+                        <i class="fa-solid fa-newspaper"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-900 mb-2">Berita & Informasi</h3>
+                    <p class="text-sm text-slate-600 mb-4">Berita terbaru, pengumuman, dan informasi penting desa.</p>
+                    <span class="text-xs font-bold text-orange-600 flex items-center gap-1">Kunjungi <i class="fa-solid fa-arrow-right"></i></span>
+                </a>
+
+                <!-- Kalender Kegiatan -->
+                <a href="kalender-kegiatan.html" class="group bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl p-6 border border-purple-200 hover:shadow-lg hover:-translate-y-1 transition-all">
+                    <div class="w-12 h-12 bg-purple-600 text-white rounded-lg flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition">
+                        <i class="fa-solid fa-calendar-days"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-900 mb-2">Kalender Kegiatan</h3>
+                    <p class="text-sm text-slate-600 mb-4">Jadwal kegiatan, acara, dan event desa sepanjang tahun.</p>
+                    <span class="text-xs font-bold text-purple-600 flex items-center gap-1">Kunjungi <i class="fa-solid fa-arrow-right"></i></span>
+                </a>
+
+                <!-- Galeri -->
+                <a href="galeri.html" class="group bg-gradient-to-br from-pink-50 to-pink-100 rounded-2xl p-6 border border-pink-200 hover:shadow-lg hover:-translate-y-1 transition-all">
+                    <div class="w-12 h-12 bg-pink-600 text-white rounded-lg flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition">
+                        <i class="fa-solid fa-images"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-900 mb-2">Galeri & Dokumentasi</h3>
+                    <p class="text-sm text-slate-600 mb-4">Foto dan video dokumentasi kegiatan desa.</p>
+                    <span class="text-xs font-bold text-pink-600 flex items-center gap-1">Kunjungi <i class="fa-solid fa-arrow-right"></i></span>
+                </a>
+
+                <!-- Kontak -->
+                <a href="kontak.html" class="group bg-gradient-to-br from-red-50 to-red-100 rounded-2xl p-6 border border-red-200 hover:shadow-lg hover:-translate-y-1 transition-all">
+                    <div class="w-12 h-12 bg-red-600 text-white rounded-lg flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition">
+                        <i class="fa-solid fa-phone"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-900 mb-2">Kontak & Lokasi</h3>
+                    <p class="text-sm text-slate-600 mb-4">Alamat, nomor telepon, dan peta lokasi desa.</p>
+                    <span class="text-xs font-bold text-red-600 flex items-center gap-1">Kunjungi <i class="fa-solid fa-arrow-right"></i></span>
+                </a>
+
+                <!-- FAQ -->
+                <a href="faq.html" class="group bg-gradient-to-br from-cyan-50 to-cyan-100 rounded-2xl p-6 border border-cyan-200 hover:shadow-lg hover:-translate-y-1 transition-all">
+                    <div class="w-12 h-12 bg-cyan-600 text-white rounded-lg flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition">
+                        <i class="fa-solid fa-circle-question"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-900 mb-2">FAQ & Panduan</h3>
+                    <p class="text-sm text-slate-600 mb-4">Pertanyaan umum dan panduan penggunaan website.</p>
+                    <span class="text-xs font-bold text-cyan-600 flex items-center gap-1">Kunjungi <i class="fa-solid fa-arrow-right"></i></span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-gradient-to-b from-slate-50 to-white border-t border-slate-200">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-slate-600 font-bold tracking-widest text-xs uppercase mb-2 block">Inisiatif Desa</span>
+                <h2 class="text-3xl font-extrabold text-slate-900">Inisiatif Pembangunan Desa</h2>
+                <p class="text-slate-500 mt-2">Program-program strategis untuk meningkatkan kesejahteraan masyarakat.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all border-l-4 border-blue-500">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600 text-xl">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </div>
+                        <h3 class="font-bold text-lg text-slate-900">Program Pendidikan</h3>
+                    </div>
+                    <p class="text-slate-600 text-sm mb-4">Beasiswa untuk siswa berprestasi dan bantuan pendidikan untuk keluarga kurang mampu.</p>
+                    <div class="flex items-center gap-2 text-sm font-bold text-blue-600">
+                        <span>Rp 150 Juta/Tahun</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all border-l-4 border-green-500">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center text-green-600 text-xl">
+                            <i class="fa-solid fa-leaf"></i>
+                        </div>
+                        <h3 class="font-bold text-lg text-slate-900">Pertanian Berkelanjutan</h3>
+                    </div>
+                    <p class="text-slate-600 text-sm mb-4">Pelatihan pertanian organik dan bantuan bibit unggul untuk meningkatkan produktivitas.</p>
+                    <div class="flex items-center gap-2 text-sm font-bold text-green-600">
+                        <span>500+ Petani Terlibat</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all border-l-4 border-purple-500">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center text-purple-600 text-xl">
+                            <i class="fa-solid fa-briefcase"></i>
+                        </div>
+                        <h3 class="font-bold text-lg text-slate-900">Pemberdayaan UMKM</h3>
+                    </div>
+                    <p class="text-slate-600 text-sm mb-4">Akses modal usaha, pelatihan digital marketing, dan pendampingan bisnis untuk UMKM lokal.</p>
+                    <div class="flex items-center gap-2 text-sm font-bold text-purple-600">
+                        <span>45 UMKM Aktif</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row gap-12">
+                
+                <div class="md:w-1/3">
+                    <h3 class="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+                        <i class="fa-regular fa-calendar-check text-primary-600"></i> Agenda Desa
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="flex gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-100 hover:border-primary-200 transition group">
+                            <div class="bg-white shadow-sm rounded-xl p-3 text-center min-w-[4rem] flex flex-col justify-center">
+                                <span class="text-[10px] font-bold text-slate-400 uppercase">JAN</span>
+                                <span class="text-2xl font-bold text-primary-600">20</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 group-hover:text-primary-600 transition">Musyawarah Desa</h4>
+                                <p class="text-xs text-slate-500 mt-1"><i class="fa-solid fa-location-dot mr-1"></i> Aula Balai Desa</p>
+                                <span class="inline-block mt-2 text-[10px] font-bold bg-blue-100 text-blue-600 px-2 py-0.5 rounded">Pemerintahan</span>
+                            </div>
+                        </div>
+                        <div class="flex gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-100 hover:border-primary-200 transition group">
+                            <div class="bg-white shadow-sm rounded-xl p-3 text-center min-w-[4rem] flex flex-col justify-center">
+                                <span class="text-[10px] font-bold text-slate-400 uppercase">JAN</span>
+                                <span class="text-2xl font-bold text-primary-600">25</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 group-hover:text-primary-600 transition">Posyandu Balita</h4>
+                                <p class="text-xs text-slate-500 mt-1"><i class="fa-solid fa-location-dot mr-1"></i> Poskesdes RT 02</p>
+                                <span class="inline-block mt-2 text-[10px] font-bold bg-pink-100 text-pink-600 px-2 py-0.5 rounded">Kesehatan</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="md:w-2/3">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-2xl font-bold text-slate-900">Kabar Terbaru</h3>
+                        <a href="#" class="text-sm font-bold text-primary-600 hover:underline">Arsip Berita</a>
+                    </div>
+                    <div class="grid sm:grid-cols-2 gap-6">
+                        <article class="group cursor-pointer">
+                            <div class="h-48 bg-slate-200 rounded-2xl mb-3 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=1000" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            </div>
+                            <h4 class="font-bold text-lg text-slate-900 leading-tight group-hover:text-primary-600 transition mb-2">Pembangunan Jembatan Penghubung Dusun Dimulai Hari Ini</h4>
+                            <div class="flex items-center gap-4 text-xs text-slate-400">
+                                <span><i class="fa-regular fa-user mr-1"></i> Admin</span>
+                                <span><i class="fa-regular fa-calendar mr-1"></i> 16 Jan 2026</span>
+                            </div>
+                        </article>
+                        <article class="group cursor-pointer">
+                            <div class="h-48 bg-slate-200 rounded-2xl mb-3 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1000" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            </div>
+                            <h4 class="font-bold text-lg text-slate-900 leading-tight group-hover:text-primary-600 transition mb-2">Pelatihan Digital Marketing untuk UMKM Desa</h4>
+                            <div class="flex items-center gap-4 text-xs text-slate-400">
+                                <span><i class="fa-regular fa-user mr-1"></i> Admin</span>
+                                <span><i class="fa-regular fa-calendar mr-1"></i> 14 Jan 2026</span>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-gradient-to-b from-slate-50 to-white border-t border-slate-200">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-orange-500 font-bold tracking-widest text-xs uppercase mb-2 block">Kepuasan Warga</span>
+                <h2 class="text-3xl font-extrabold text-slate-900">Testimoni Masyarakat</h2>
+                <p class="text-slate-500 mt-2">Pengalaman nyata dari warga Desa Sungai Pitung.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all">
+                    <div class="flex items-center gap-1 mb-4">
+                        <i class="fa-solid fa-star text-yellow-400"></i>
+                        <i class="fa-solid fa-star text-yellow-400"></i>
+                        <i class="fa-solid fa-star text-yellow-400"></i>
+                        <i class="fa-solid fa-star text-yellow-400"></i>
+                        <i class="fa-solid fa-star text-yellow-400"></i>
+                    </div>
+                    <p class="text-slate-600 mb-4 italic">"Layanan surat online sangat memudahkan saya. Tidak perlu antri lama di balai desa. Prosesnya cepat dan transparan."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-blue-200 rounded-full flex items-center justify-center font-bold text-blue-700">SP</div>
+                        <div>
+                            <p class="font-bold text-slate-900 text-sm">Siti Purnama</p>
+                            <p class="text-xs text-slate-500">Warga RT 02</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all">
+                    <div class="flex items-center gap-1 mb-4">
+                        <i class="fa-solid fa-star text-yellow-400"></i>
+                        <i class="fa-solid fa-star text-yellow-400"></i>
+                        <i class="fa-solid fa-star text-yellow-400"></i>
+                        <i class="fa-solid fa-star text-yellow-400"></i>
+                        <i class="fa-solid fa-star text-yellow-400"></i>
+                    </div>
+                    <p class="text-slate-600 mb-4 italic">"Transparansi APBDes membuat saya percaya bahwa dana desa digunakan dengan baik untuk pembangunan. Sangat menginspirasi!"</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-green-200 rounded-full flex items-center justify-center font-bold text-green-700">BH</div>
+                        <div>
+                            <p class="font-bold text-slate-900 text-sm">Budi Hartono</p>
+                            <p class="text-xs text-slate-500">Petani, RT 04</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all">
+                    <div class="flex items-center gap-1 mb-4">
+                        <i class="fa-solid fa-star text-yellow-400"></i>
+                        <i class="fa-solid fa-star text-yellow-400"></i>
+                        <i class="fa-solid fa-star text-yellow-400"></i>
+                        <i class="fa-solid fa-star text-yellow-400"></i>
+                        <i class="fa-solid fa-star text-yellow-400"></i>
+                    </div>
+                    <p class="text-slate-600 mb-4 italic">"Direktori UMKM membantu saya menjual produk kerajinan ke pasar yang lebih luas. Omset meningkat 200% dalam 3 bulan!"</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-pink-200 rounded-full flex items-center justify-center font-bold text-pink-700">RM</div>
+                        <div>
+                            <p class="font-bold text-slate-900 text-sm">Rini Melati</p>
+                            <p class="text-xs text-slate-500">UMKM Kerajinan</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-white border-t border-slate-200">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-blue-600 font-bold tracking-widest text-xs uppercase mb-2 block">Pertanyaan Umum</span>
+                <h2 class="text-3xl font-extrabold text-slate-900">FAQ - Pertanyaan Sering Diajukan</h2>
+                <p class="text-slate-500 mt-2">Temukan jawaban atas pertanyaan umum tentang layanan desa.</p>
+            </div>
+
+            <div class="max-w-3xl mx-auto space-y-4">
+                <details class="group bg-white border border-slate-200 rounded-2xl p-6 hover:border-primary-300 transition cursor-pointer">
+                    <summary class="flex items-center justify-between font-bold text-slate-900 text-lg">
+                        <span>Bagaimana cara mengajukan surat pengantar?</span>
+                        <i class="fa-solid fa-chevron-down group-open:rotate-180 transition"></i>
+                    </summary>
+                    <p class="text-slate-600 mt-4 text-sm">Anda dapat mengajukan surat pengantar melalui menu "Layanan Warga" di website ini. Isi formulir dengan data diri lengkap, upload dokumen pendukung (KTP, KK), dan tunggu persetujuan dari perangkat desa dalam 1-2 hari kerja.</p>
+                </details>
+
+                <details class="group bg-white border border-slate-200 rounded-2xl p-6 hover:border-primary-300 transition cursor-pointer">
+                    <summary class="flex items-center justify-between font-bold text-slate-900 text-lg">
+                        <span>Bagaimana cara cek status penerimaan bansos?</span>
+                        <i class="fa-solid fa-chevron-down group-open:rotate-180 transition"></i>
+                    </summary>
+                    <p class="text-slate-600 mt-4 text-sm">Kunjungi halaman "Cek Bansos" dan masukkan NIK Anda. Sistem akan menampilkan status penerimaan bantuan sosial, jumlah, dan jadwal pencairan. Data diperbarui setiap minggu sesuai dengan data dari pemerintah kabupaten.</p>
+                </details>
+
+                <details class="group bg-white border border-slate-200 rounded-2xl p-6 hover:border-primary-300 transition cursor-pointer">
+                    <summary class="flex items-center justify-between font-bold text-slate-900 text-lg">
+                        <span>Apakah ada biaya untuk layanan online?</span>
+                        <i class="fa-solid fa-chevron-down group-open:rotate-180 transition"></i>
+                    </summary>
+                    <p class="text-slate-600 mt-4 text-sm">Semua layanan online di website ini gratis. Tidak ada biaya administrasi tambahan. Biaya yang berlaku adalah biaya resmi sesuai peraturan pemerintah desa yang sama dengan layanan offline.</p>
+                </details>
+
+                <details class="group bg-white border border-slate-200 rounded-2xl p-6 hover:border-primary-300 transition cursor-pointer">
+                    <summary class="flex items-center justify-between font-bold text-slate-900 text-lg">
+                        <span>Bagaimana cara melaporkan masalah atau memberikan saran?</span>
+                        <i class="fa-solid fa-chevron-down group-open:rotate-180 transition"></i>
+                    </summary>
+                    <p class="text-slate-600 mt-4 text-sm">Gunakan menu "Layanan Pengaduan" untuk melaporkan masalah atau memberikan saran. Laporan Anda akan ditindaklanjuti oleh perangkat desa. Anda juga dapat menghubungi langsung melalui nomor telepon atau email yang tersedia di footer.</p>
+                </details>
+
+                <details class="group bg-white border border-slate-200 rounded-2xl p-6 hover:border-primary-300 transition cursor-pointer">
+                    <summary class="flex items-center justify-between font-bold text-slate-900 text-lg">
+                        <span>Bagaimana cara mendaftarkan UMKM di Direktori UMKM Desa?</span>
+                        <i class="fa-solid fa-chevron-down group-open:rotate-180 transition"></i>
+                    </summary>
+                    <p class="text-slate-600 mt-4 text-sm">Hubungi Tim IT Desa atau datang ke Balai Desa untuk mendaftar sebagai penjual. Kami akan membantu Anda membuat profil toko dan mengunggah produk. Tidak ada biaya pendaftaran untuk UMKM lokal.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-gradient-to-r from-primary-600 to-blue-600 text-white">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-extrabold mb-4">Hubungi Kami</h2>
+                    <p class="text-white/80 mb-8">Punya pertanyaan atau butuh bantuan? Tim kami siap membantu Anda 24/7.</p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
+                                <i class="fa-solid fa-phone text-lg"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-white/70">Telepon</p>
+                                <a href="tel:05111234567" class="font-bold text-lg hover:underline">(0511) 123-4567</a>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
+                                <i class="fa-solid fa-envelope text-lg"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-white/70">Email</p>
+                                <a href="mailto:admin@sungaipitung.desa.id" class="font-bold text-lg hover:underline">admin@sungaipitung.desa.id</a>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
+                                <i class="fa-brands fa-whatsapp text-lg"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-white/70">WhatsApp</p>
+                                <a href="https://wa.me/628123456789" class="font-bold text-lg hover:underline">+62 812-3456-789</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white/10 backdrop-blur rounded-2xl p-8 border border-white/20">
+                    <h3 class="font-bold text-xl mb-6">Jam Layanan</h3>
+                    <div class="space-y-3 text-sm">
+                        <div class="flex justify-between">
+                            <span class="text-white/80">Senin - Jumat</span>
+                            <span class="font-bold">08:00 - 16:00 WITA</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-white/80">Sabtu</span>
+                            <span class="font-bold">08:00 - 12:00 WITA</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-white/80">Minggu & Hari Libur</span>
+                            <span class="font-bold">Tutup</span>
+                        </div>
+                        <hr class="border-white/20 my-4">
+                        <p class="text-white/70 text-xs italic">Layanan online tersedia 24/7 melalui website ini.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-gradient-to-b from-slate-50 to-white border-t border-slate-200">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-red-500 font-bold tracking-widest text-xs uppercase mb-2 block">Informasi Penting</span>
+                <h2 class="text-3xl font-extrabold text-slate-900">Pengumuman Penting</h2>
+                <p class="text-slate-500 mt-2">Informasi terbaru yang perlu diketahui warga.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                <div class="bg-red-50 border-l-4 border-red-500 rounded-lg p-6 hover:shadow-lg transition-all">
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 bg-red-500 text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">!</div>
+                        <div>
+                            <h3 class="font-bold text-slate-900 mb-2">Penyaluran BLT Tahap 1</h3>
+                            <p class="text-sm text-slate-600 mb-3">Penyaluran Bantuan Langsung Tunai (BLT) Tahap 1 dilaksanakan tanggal 20 Januari 2026 di Balai Desa pukul 08:00 - 16:00 WITA.</p>
+                            <p class="text-xs text-red-600 font-bold">📋 Harap membawa KTP & KK Asli</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-blue-50 border-l-4 border-blue-500 rounded-lg p-6 hover:shadow-lg transition-all">
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 bg-blue-500 text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">i</div>
+                        <div>
+                            <h3 class="font-bold text-slate-900 mb-2">Musyawarah Desa Bulan Januari</h3>
+                            <p class="text-sm text-slate-600 mb-3">Musyawarah Desa akan dilaksanakan pada tanggal 20 Januari 2026 untuk membahas rencana pembangunan tahun 2026.</p>
+                            <p class="text-xs text-blue-600 font-bold">📍 Lokasi: Aula Balai Desa</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-green-50 border-l-4 border-green-500 rounded-lg p-6 hover:shadow-lg transition-all">
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 bg-green-500 text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">✓</div>
+                        <div>
+                            <h3 class="font-bold text-slate-900 mb-2">Pembangunan Jembatan Dimulai</h3>
+                            <p class="text-sm text-slate-600 mb-3">Proyek pembangunan jembatan penghubung antar dusun telah dimulai dan diperkirakan selesai dalam 3 bulan.</p>
+                            <p class="text-xs text-green-600 font-bold">🏗️ Status: Sedang Berlangsung</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-purple-50 border-l-4 border-purple-500 rounded-lg p-6 hover:shadow-lg transition-all">
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 bg-purple-500 text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">📢</div>
+                        <div>
+                            <h3 class="font-bold text-slate-900 mb-2">Pelatihan Digital Marketing UMKM</h3>
+                            <p class="text-sm text-slate-600 mb-3">Pelatihan gratis untuk UMKM lokal tentang digital marketing dan e-commerce akan diadakan minggu depan.</p>
+                            <p class="text-xs text-purple-600 font-bold">📝 Daftar di Balai Desa</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-white border-t border-slate-200">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-indigo-600 font-bold tracking-widest text-xs uppercase mb-2 block">Dokumentasi</span>
+                <h2 class="text-3xl font-extrabold text-slate-900">Galeri Kegiatan Desa</h2>
+                <p class="text-slate-500 mt-2">Dokumentasi kegiatan dan program pembangunan desa.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="group relative overflow-hidden rounded-2xl h-64 cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=800" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-all flex items-end p-4">
+                        <div class="text-white">
+                            <p class="font-bold text-sm">Gotong Royong Pembersihan Desa</p>
+                            <p class="text-xs text-white/80">Januari 2026</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group relative overflow-hidden rounded-2xl h-64 cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=800" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-all flex items-end p-4">
+                        <div class="text-white">
+                            <p class="font-bold text-sm">Pelatihan Pertanian Organik</p>
+                            <p class="text-xs text-white/80">Desember 2025</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group relative overflow-hidden rounded-2xl h-64 cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=800" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-all flex items-end p-4">
+                        <div class="text-white">
+                            <p class="font-bold text-sm">Peluncuran Direktori UMKM</p>
+                            <p class="text-xs text-white/80">November 2025</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group relative overflow-hidden rounded-2xl h-64 cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=800" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-all flex items-end p-4">
+                        <div class="text-white">
+                            <p class="font-bold text-sm">Acara Hari Kemerdekaan</p>
+                            <p class="text-xs text-white/80">Agustus 2025</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group relative overflow-hidden rounded-2xl h-64 cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=800" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-all flex items-end p-4">
+                        <div class="text-white">
+                            <p class="font-bold text-sm">Perbaikan Jalan Desa</p>
+                            <p class="text-xs text-white/80">Juli 2025</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group relative overflow-hidden rounded-2xl h-64 cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=800" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-all flex items-end p-4">
+                        <div class="text-white">
+                            <p class="font-bold text-sm">Posyandu Kesehatan Rutin</p>
+                            <p class="text-xs text-white/80">Juni 2025</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group relative overflow-hidden rounded-2xl h-64 cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=800" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-all flex items-end p-4">
+                        <div class="text-white">
+                            <p class="font-bold text-sm">Pemberdayaan Ibu Rumah Tangga</p>
+                            <p class="text-xs text-white/80">Mei 2025</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group relative overflow-hidden rounded-2xl h-64 cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=800" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-all flex items-end p-4">
+                        <div class="text-white">
+                            <p class="font-bold text-sm">Rapat Koordinasi Desa</p>
+                            <p class="text-xs text-white/80">April 2025</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-gradient-to-b from-slate-50 to-white border-t border-slate-200">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-green-600 font-bold tracking-widest text-xs uppercase mb-2 block">Lokasi Desa</span>
+                <h2 class="text-3xl font-extrabold text-slate-900">Peta Lokasi Desa Sungai Pitung</h2>
+                <p class="text-slate-500 mt-2">Temukan kami di Kecamatan Alalak, Kabupaten Barito Kuala.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-2">
+                    <div class="rounded-2xl overflow-hidden shadow-xl h-96">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3984.5234567890123!2d114.5!3d-3.5!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zM8KwMzAnMDAuMCJTIDExNMKwMzAnMDAuMCJF!5e0!3m2!1sid!2sid!4v1234567890" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="bg-white rounded-2xl p-6 shadow-lg">
+                        <h3 class="font-bold text-slate-900 mb-4 flex items-center gap-2">
+                            <i class="fa-solid fa-location-dot text-green-600"></i> Alamat Lengkap
+                        </h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            Jl. Poros Desa No. 1<br>
+                            Desa Sungai Pitung<br>
+                            Kecamatan Alalak<br>
+                            Kabupaten Barito Kuala<br>
+                            Provinsi Kalimantan Selatan<br>
+                            Kode Pos: 70681
+                        </p>
+                    </div>
+
+                    <div class="bg-white rounded-2xl p-6 shadow-lg">
+                        <h3 class="font-bold text-slate-900 mb-4 flex items-center gap-2">
+                            <i class="fa-solid fa-info-circle text-blue-600"></i> Informasi Lainnya
+                        </h3>
+                        <div class="space-y-3 text-sm text-slate-600">
+                            <div>
+                                <p class="font-bold text-slate-900">Luas Wilayah</p>
+                                <p>200 Hektar</p>
+                            </div>
+                            <div>
+                                <p class="font-bold text-slate-900">Jumlah Penduduk</p>
+                                <p>1.450 Jiwa</p>
+                            </div>
+                            <div>
+                                <p class="font-bold text-slate-900">Jumlah KK</p>
+                                <p>380 Keluarga</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-white border-t border-slate-200">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-pink-600 font-bold tracking-widest text-xs uppercase mb-2 block">Kemitraan</span>
+                <h2 class="text-3xl font-extrabold text-slate-900">Mitra & Sponsor</h2>
+                <p class="text-slate-500 mt-2">Institusi yang mendukung pembangunan Desa Sungai Pitung.</p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 items-center">
+                <div class="bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition-all border border-slate-100 flex items-center justify-center h-32">
+                    <div class="text-center">
+                        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-2 text-blue-600 text-xl">
+                            <i class="fa-solid fa-building"></i>
+                        </div>
+                        <p class="font-bold text-sm text-slate-900">Pemkab Barito Kuala</p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition-all border border-slate-100 flex items-center justify-center h-32">
+                    <div class="text-center">
+                        <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-2 text-green-600 text-xl">
+                            <i class="fa-solid fa-leaf"></i>
+                        </div>
+                        <p class="font-bold text-sm text-slate-900">Dinas Pertanian</p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition-all border border-slate-100 flex items-center justify-center h-32">
+                    <div class="text-center">
+                        <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mx-auto mb-2 text-red-600 text-xl">
+                            <i class="fa-solid fa-heart"></i>
+                        </div>
+                        <p class="font-bold text-sm text-slate-900">Dinas Kesehatan</p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition-all border border-slate-100 flex items-center justify-center h-32">
+                    <div class="text-center">
+                        <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mx-auto mb-2 text-purple-600 text-xl">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </div>
+                        <p class="font-bold text-sm text-slate-900">Dinas Pendidikan</p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition-all border border-slate-100 flex items-center justify-center h-32">
+                    <div class="text-center">
+                        <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mx-auto mb-2 text-orange-600 text-xl">
+                            <i class="fa-solid fa-briefcase"></i>
+                        </div>
+                        <p class="font-bold text-sm text-slate-900">Dinas UMKM</p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition-all border border-slate-100 flex items-center justify-center h-32">
+                    <div class="text-center">
+                        <div class="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mx-auto mb-2 text-indigo-600 text-xl">
+                            <i class="fa-solid fa-road"></i>
+                        </div>
+                        <p class="font-bold text-sm text-slate-900">Dinas Infrastruktur</p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition-all border border-slate-100 flex items-center justify-center h-32">
+                    <div class="text-center">
+                        <div class="w-12 h-12 bg-cyan-100 rounded-lg flex items-center justify-center mx-auto mb-2 text-cyan-600 text-xl">
+                            <i class="fa-solid fa-water"></i>
+                        </div>
+                        <p class="font-bold text-sm text-slate-900">Dinas Lingkungan</p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition-all border border-slate-100 flex items-center justify-center h-32">
+                    <div class="text-center">
+                        <div class="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center mx-auto mb-2 text-teal-600 text-xl">
+                            <i class="fa-solid fa-handshake"></i>
+                        </div>
+                        <p class="font-bold text-sm text-slate-900">Koperasi Desa</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-gradient-to-b from-slate-50 to-white border-t border-slate-200">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-red-600 font-bold tracking-widest text-xs uppercase mb-2 block">Video</span>
+                <h2 class="text-3xl font-extrabold text-slate-900">Profil Video Desa</h2>
+                <p class="text-slate-500 mt-2">Kenali Desa Sungai Pitung melalui video dokumentasi.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <div class="rounded-2xl overflow-hidden shadow-xl">
+                    <div class="relative w-full h-80 bg-slate-900">
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Profil Desa Sungai Pitung" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+
+                <div class="rounded-2xl overflow-hidden shadow-xl">
+                    <div class="relative w-full h-80 bg-slate-900">
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Potensi Pertanian Desa" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+
+                <div class="rounded-2xl overflow-hidden shadow-xl">
+                    <div class="relative w-full h-80 bg-slate-900">
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Program Pemberdayaan UMKM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+
+                <div class="rounded-2xl overflow-hidden shadow-xl">
+                    <div class="relative w-full h-80 bg-slate-900">
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Transparansi APBDes" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    </div>
+
+        <footer class="bg-slate-900 text-white pt-12 md:pt-20 pb-6 md:pb-8 mt-auto rounded-t-[3rem]">
+        <div class="container mx-auto px-3 md:px-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-10 mb-12 border-b border-slate-800 pb-12">
+                <div class="col-span-1 sm:col-span-2 lg:col-span-1">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-9 md:w-10 h-9 md:h-10 bg-primary-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <i class="fa-solid fa-leaf"></i>
+                        </div>
+                        <span class="font-bold text-lg md:text-2xl">Sungai Pitung</span>
+                    </div>
+                    <p class="text-slate-400 text-xs md:text-sm leading-relaxed max-w-sm mb-6">
+                        Website Resmi Pemerintah Desa Sungai Pitung. <br>
+                        Kecamatan Alalak, Kabupaten Barito Kuala, Kalimantan Selatan.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-9 md:w-10 h-9 md:h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary-600 transition flex-shrink-0"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="w-9 md:w-10 h-9 md:h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary-600 transition flex-shrink-0"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="w-9 md:w-10 h-9 md:h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary-600 transition flex-shrink-0"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-sm md:text-lg mb-6">Akses Cepat</h4>
+                    <ul class="space-y-3 text-xs md:text-sm text-slate-400">
+                        <li class="flex gap-3"><i class="fa-solid fa-link flex-shrink-0 mt-0.5"></i> <a href="layanan-surat.html" class="hover:text-primary-400 transition">Administrasi Surat</a></li>
+                        <li class="flex gap-3"><i class="fa-solid fa-link flex-shrink-0 mt-0.5"></i> <a href="cek-bansos.html" class="hover:text-primary-400 transition">Cek Bansos</a></li>
+                        <li class="flex gap-3"><i class="fa-solid fa-link flex-shrink-0 mt-0.5"></i> <a href="pengaduan.html" class="hover:text-primary-400 transition">Pengaduan Warga</a></li>
+                        <li class="flex gap-3"><i class="fa-solid fa-link flex-shrink-0 mt-0.5"></i> <a href="umkm.html" class="hover:text-primary-400 transition">UMKM Desa</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-sm md:text-lg mb-6">Informasi</h4>
+                    <ul class="space-y-3 text-xs md:text-sm text-slate-400">
+                        <li class="flex gap-3"><i class="fa-solid fa-file flex-shrink-0 mt-0.5"></i> <a href="profil.html" class="hover:text-primary-400 transition">Profil Desa</a></li>
+                        <li class="flex gap-3"><i class="fa-solid fa-chart-bar flex-shrink-0 mt-0.5"></i> <a href="statistik.html" class="hover:text-primary-400 transition">Statistik</a></li>
+                        <li class="flex gap-3"><i class="fa-solid fa-map flex-shrink-0 mt-0.5"></i> <a href="peta-potensi.html" class="hover:text-primary-400 transition">Peta Potensi</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-sm md:text-lg mb-6">Kontak & Lokasi</h4>
+                    <ul class="space-y-3 text-xs md:text-sm text-slate-400">
+                        <li class="flex gap-3"><i class="fa-solid fa-location-dot flex-shrink-0 mt-0.5"></i> <span>Jl. Poros Desa No. 1, Sungai Pitung, Barito Kuala</span></li>
+                        <li class="flex gap-3"><i class="fa-solid fa-envelope flex-shrink-0 mt-0.5"></i> <a href="mailto:admin@sungaipitung.desa.id" class="hover:text-primary-400 transition">admin@sungaipitung.desa.id</a></li>
+                        <li class="flex gap-3"><i class="fa-solid fa-phone flex-shrink-0 mt-0.5"></i> <a href="tel:05111234567" class="hover:text-primary-400 transition">(0511) 123-4567</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row justify-between items-center text-xs text-slate-500 gap-4">
+                <p>&copy; 2026 Pemerintah Desa Sungai Pitung. All rights reserved.</p>
+                <p>Dikembangkan oleh Tim IT Desa (SID)</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let currentSlide = 0;
+        const slidesContainer = document.getElementById('carouselSlides');
+        const indicators = document.querySelectorAll('.indicator');
+        const totalSlides = 3;
+        const totalSlidesWithDuplicate = 4; // 3 slides + 1 duplicate
+        let isTransitioning = false;
+
+        function updateSlide(smooth = true) {
+            if (smooth) {
+                slidesContainer.style.transition = 'transform 0.7s ease-in-out';
+            } else {
+                slidesContainer.style.transition = 'none';
+            }
+            
+            slidesContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            // Update indicators
+            const activeIndex = currentSlide % totalSlides;
+            indicators.forEach((dot, index) => {
+                if(index === activeIndex) {
+                    dot.classList.remove('bg-white/50');
+                    dot.classList.add('bg-white', 'scale-125');
+                } else {
+                    dot.classList.add('bg-white/50');
+                    dot.classList.remove('bg-white', 'scale-125');
+                }
+            });
+
+            // Check if we reached the duplicate slide and reset
+            if (currentSlide === totalSlidesWithDuplicate) {
+                setTimeout(() => {
+                    isTransitioning = true;
+                    slidesContainer.style.transition = 'none';
+                    currentSlide = 0;
+                    slidesContainer.style.transform = `translateX(0)`;
+                    isTransitioning = false;
+                }, 700); // Wait for transition to complete
+            }
+        }
+
+        function nextSlide() {
+            currentSlide++;
+            updateSlide(true);
+        }
+
+        function prevSlide() {
+            currentSlide--;
+            if (currentSlide < 0) {
+                currentSlide = totalSlides - 1;
+            }
+            updateSlide(true);
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateSlide(true);
+        }
+
+        // Auto slide every 3 seconds
+        setInterval(nextSlide, 3000);
+    </script>
+
+</body>
+</html>
+
+
+

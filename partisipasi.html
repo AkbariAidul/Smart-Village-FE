@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partisipasi Masyarakat - Sistem Informasi Desa Sungai Pitung</title>
+    <link href="./dist/output.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Hide Scrollbar for cleaner look */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        /* Submenu hover fix */
+        .group\/submenu:hover > div {
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+        
+        .group\/submenu > div {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.2s, visibility 0.2s;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased flex flex-col min-h-screen">
+    <nav class="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 transition-all duration-300">
+        <div class="bg-slate-900 text-white text-[10px] md:text-[11px] py-2 px-3 md:px-6 flex justify-between items-center">
+            <div class="flex items-center gap-2 overflow-hidden flex-1">
+                <span class="bg-red-600 px-2 py-0.5 rounded text-[9px] md:text-[10px] font-bold animate-pulse whitespace-nowrap">INFO TERKINI</span>
+                <marquee class="max-w-xs md:max-w-md lg:max-w-xl text-[9px] md:text-[11px]">Penyaluran Bantuan Langsung Tunai (BLT) Tahap 1 dilaksanakan tanggal 20 Januari 2026 di Balai Desa. Harap membawa KTP & KK Asli.</marquee>
+            </div>
+            <div class="hidden md:flex gap-2 lg:gap-4 opacity-80 font-medium text-[10px] lg:text-sm whitespace-nowrap">
+                <span><i class="fa-regular fa-clock mr-1"></i> Senin - Jumat, 08:00 - 16:00 WITA</span>
+                <a href="tel:08123456789" class="hover:text-primary-400"><i class="fa-solid fa-phone mr-1"></i> Layanan Darurat</a>
+            </div>
+        </div>
+
+        <div class="container mx-auto px-3 md:px-6 h-16 md:h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2 md:gap-3 group flex-shrink-0">
+                <img src="https://ui-avatars.com/api/?name=S+P&background=10b981&color=fff&rounded=true&bold=true" alt="Logo" class="w-8 md:w-10 h-8 md:h-10 rounded-lg md:rounded-xl shadow-lg group-hover:rotate-12 transition-transform">
+                <div class="leading-tight hidden sm:block">
+                    <h1 class="font-bold text-sm md:text-lg text-slate-900 group-hover:text-primary-600 transition">Sungai Pitung</h1>
+                    <p class="text-[8px] md:text-[10px] font-bold text-slate-500 uppercase tracking-widest">Sistem Informasi Desa</p>
+                </div>
+            </a>
+
+            <div class="hidden lg:flex items-center gap-1 bg-slate-100 p-1 rounded-full border border-slate-200">
+                <a href="index.html" class="px-4 lg:px-5 py-2 rounded-full text-slate-500 hover:text-slate-900 font-medium text-xs lg:text-sm transition">Beranda</a>
+                <a href="profil.html" class="px-4 lg:px-5 py-2 rounded-full text-slate-500 hover:text-slate-900 font-medium text-xs lg:text-sm transition">Profil Desa</a>
+                
+                <!-- Transparansi Submenu -->
+                <div class="relative group/submenu">
+                    <button class="px-4 lg:px-5 py-2 rounded-full text-slate-500 hover:text-slate-900 font-medium text-xs lg:text-sm transition flex items-center gap-1">
+                        Transparansi <i class="fa-solid fa-chevron-down text-[10px]"></i>
+                    </button>
+                    <div class="absolute left-0 top-full mt-1 w-48 bg-white rounded-2xl shadow-lg border border-slate-100 opacity-0 invisible group-hover/submenu:opacity-100 group-hover/submenu:visible transition-all duration-200 z-50">
+                        <a href="statistik.html" class="block px-4 py-3 text-slate-700 hover:bg-slate-50 font-medium text-sm transition rounded-t-2xl">Statistik</a>
+                        <a href="apbdes.html" class="block px-4 py-3 text-slate-700 hover:bg-slate-50 font-medium text-sm transition border-t border-slate-100">APBDes</a>
+                        <a href="penduduk.html" class="block px-4 py-3 text-slate-700 hover:bg-slate-50 font-medium text-sm transition border-t border-slate-100 rounded-b-2xl">Penduduk</a>
+                    </div>
+                </div>
+                
+                <a href="peta-potensi.html" class="px-4 lg:px-5 py-2 rounded-full text-slate-500 hover:text-slate-900 font-medium text-xs lg:text-sm transition">Potensi</a>
+                <a href="umkm.html" class="px-4 lg:px-5 py-2 rounded-full text-slate-500 hover:text-slate-900 font-medium text-xs lg:text-sm transition">UMKM</a>
+                <a href="partisipasi.html" class="px-4 lg:px-5 py-2 rounded-full bg-white shadow-sm text-primary-700 font-bold text-xs lg:text-sm">Partisipasi</a>
+                <a href="program-pemberdayaan.html" class="px-4 lg:px-5 py-2 rounded-full text-slate-500 hover:text-slate-900 font-medium text-xs lg:text-sm transition">Pemberdayaan</a>
+                
+                <!-- Informasi Submenu -->
+                <div class="relative group/submenu">
+                    <button class="px-4 lg:px-5 py-2 rounded-full text-slate-500 hover:text-slate-900 font-medium text-xs lg:text-sm transition flex items-center gap-1">
+                        Informasi <i class="fa-solid fa-chevron-down text-[10px]"></i>
+                    </button>
+                    <div class="absolute left-0 top-full mt-1 w-48 bg-white rounded-2xl shadow-lg border border-slate-100 opacity-0 invisible group-hover/submenu:opacity-100 group-hover/submenu:visible transition-all duration-200 z-50">
+                        <a href="berita.html" class="block px-4 py-3 text-slate-700 hover:bg-slate-50 font-medium text-sm transition rounded-t-2xl">Berita</a>
+                        <a href="kalender-kegiatan.html" class="block px-4 py-3 text-slate-700 hover:bg-slate-50 font-medium text-sm transition border-t border-slate-100">Kalender</a>
+                        <a href="galeri.html" class="block px-4 py-3 text-slate-700 hover:bg-slate-50 font-medium text-sm transition border-t border-slate-100">Galeri</a>
+                        <a href="faq.html" class="block px-4 py-3 text-slate-700 hover:bg-slate-50 font-medium text-sm transition border-t border-slate-100 rounded-b-2xl">FAQ</a>
+                    </div>
+                </div>
+                
+                <!-- Layanan Submenu -->
+                <div class="relative group/submenu">
+                    <button class="px-4 lg:px-5 py-2 rounded-full text-slate-500 hover:text-slate-900 font-medium text-xs lg:text-sm transition flex items-center gap-1">
+                        Layanan <i class="fa-solid fa-chevron-down text-[10px]"></i>
+                    </button>
+                    <div class="absolute left-0 top-full mt-1 w-48 bg-white rounded-2xl shadow-lg border border-slate-100 opacity-0 invisible group-hover/submenu:opacity-100 group-hover/submenu:visible transition-all duration-200 z-50">
+                        <a href="layanan-surat.html" class="block px-4 py-3 text-slate-700 hover:bg-slate-50 font-medium text-sm transition rounded-t-2xl">Buat Surat</a>
+                        <a href="cek-bansos.html" class="block px-4 py-3 text-slate-700 hover:bg-slate-50 font-medium text-sm transition border-t border-slate-100">Cek Bansos</a>
+                        <a href="pengaduan.html" class="block px-4 py-3 text-slate-700 hover:bg-slate-50 font-medium text-sm transition border-t border-slate-100 rounded-b-2xl">Pengaduan</a>
+                    </div>
+                </div>
+                
+                <a href="kontak.html" class="px-4 lg:px-5 py-2 rounded-full text-slate-500 hover:text-slate-900 font-medium text-xs lg:text-sm transition">Kontak</a>
+            </div>
+
+            <div class="flex items-center gap-2 md:gap-3">
+                <a href="layanan-surat.html" class="hidden md:flex items-center gap-1 lg:gap-2 bg-primary-600 text-white px-3 lg:px-6 py-2 lg:py-2.5 rounded-full font-bold text-xs lg:text-sm hover:bg-primary-700 transition shadow-lg shadow-primary-600/30">
+                    <i class="fa-regular fa-id-card"></i> <span class="hidden lg:inline">Layanan Warga</span>
+                </a>
+
+                <button id="mobileMenuBtn" class="lg:hidden p-2 hover:bg-slate-100 rounded-lg transition">
+                    <i class="fa-solid fa-bars text-xl text-slate-900"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden lg:hidden bg-white border-t border-slate-200 max-h-0 overflow-hidden transition-all duration-300">
+            <div class="container mx-auto px-3 py-4 space-y-2">
+                <a href="index.html" class="block px-4 py-3 rounded-lg text-slate-700 hover:bg-slate-50 font-medium text-sm transition">Beranda</a>
+                <a href="profil.html" class="block px-4 py-3 rounded-lg text-slate-700 hover:bg-slate-50 font-medium text-sm transition">Profil Desa</a>
+                
+                <!-- Transparansi Mobile -->
+                <div class="space-y-1">
+                    <button onclick="toggleMobileSubmenu(this)" class="w-full text-left px-4 py-3 rounded-lg text-slate-700 hover:bg-slate-50 font-medium text-sm transition flex items-center justify-between">
+                        Transparansi <i class="fa-solid fa-chevron-down text-xs"></i>
+                    </button>
+                    <div class="hidden space-y-1 pl-4">
+                        <a href="statistik.html" class="block px-4 py-2 rounded-lg text-slate-600 hover:bg-slate-50 text-sm transition">Statistik</a>
+                        <a href="apbdes.html" class="block px-4 py-2 rounded-lg text-slate-600 hover:bg-slate-50 text-sm transition">APBDes</a>
+                        <a href="penduduk.html" class="block px-4 py-2 rounded-lg text-slate-600 hover:bg-slate-50 text-sm transition">Penduduk</a>
+                    </div>
+                </div>
+                
+                <a href="peta-potensi.html" class="block px-4 py-3 rounded-lg text-slate-700 hover:bg-slate-50 font-medium text-sm transition">Potensi</a>
+                <a href="umkm.html" class="block px-4 py-3 rounded-lg text-slate-700 hover:bg-slate-50 font-medium text-sm transition">UMKM</a>
+                <a href="partisipasi.html" class="block px-4 py-3 rounded-lg bg-primary-50 text-primary-700 font-bold text-sm">Partisipasi</a>
+                <a href="program-pemberdayaan.html" class="block px-4 py-3 rounded-lg text-slate-700 hover:bg-slate-50 font-medium text-sm transition">Pemberdayaan</a>
+                
+                <!-- Informasi Mobile -->
+                <div class="space-y-1">
+                    <button onclick="toggleMobileSubmenu(this)" class="w-full text-left px-4 py-3 rounded-lg text-slate-700 hover:bg-slate-50 font-medium text-sm transition flex items-center justify-between">
+                        Informasi <i class="fa-solid fa-chevron-down text-xs"></i>
+                    </button>
+                    <div class="hidden space-y-1 pl-4">
+                        <a href="berita.html" class="block px-4 py-2 rounded-lg text-slate-600 hover:bg-slate-50 text-sm transition">Berita</a>
+                        <a href="kalender-kegiatan.html" class="block px-4 py-2 rounded-lg text-slate-600 hover:bg-slate-50 text-sm transition">Kalender</a>
+                        <a href="galeri.html" class="block px-4 py-2 rounded-lg text-slate-600 hover:bg-slate-50 text-sm transition">Galeri</a>
+                        <a href="faq.html" class="block px-4 py-2 rounded-lg text-slate-600 hover:bg-slate-50 text-sm transition">FAQ</a>
+                    </div>
+                </div>
+                
+                <!-- Layanan Mobile -->
+                <div class="space-y-1">
+                    <button onclick="toggleMobileSubmenu(this)" class="w-full text-left px-4 py-3 rounded-lg text-slate-700 hover:bg-slate-50 font-medium text-sm transition flex items-center justify-between">
+                        Layanan <i class="fa-solid fa-chevron-down text-xs"></i>
+                    </button>
+                    <div class="hidden space-y-1 pl-4">
+                        <a href="layanan-surat.html" class="block px-4 py-2 rounded-lg text-slate-600 hover:bg-slate-50 text-sm transition">Buat Surat</a>
+                        <a href="cek-bansos.html" class="block px-4 py-2 rounded-lg text-slate-600 hover:bg-slate-50 text-sm transition">Cek Bansos</a>
+                        <a href="pengaduan.html" class="block px-4 py-2 rounded-lg text-slate-600 hover:bg-slate-50 text-sm transition">Pengaduan</a>
+                    </div>
+                </div>
+                
+                <a href="kontak.html" class="block px-4 py-3 rounded-lg text-slate-700 hover:bg-slate-50 font-medium text-sm transition">Kontak</a>
+            </div>
+        </div>
+    </nav>
+
+    <script>
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            if (!mobileMenu.classList.contains('hidden')) {
+                mobileMenu.style.maxHeight = mobileMenu.scrollHeight + 'px';
+            } else {
+                mobileMenu.style.maxHeight = '0';
+            }
+        });
+        
+        function toggleMobileSubmenu(button) {
+            const submenu = button.nextElementSibling;
+            submenu.classList.toggle('hidden');
+            const icon = button.querySelector('i');
+            icon.classList.toggle('rotate-180');
+        }
+
+                // Desktop submenu hover handler - works on all pages
+        function setupDesktopSubmenu() {
+            const desktopNav = document.querySelector('.hidden.lg\:flex.items-center');
+            if (desktopNav) {
+                const submenuGroups = desktopNav.querySelectorAll('.group\/submenu');
+                submenuGroups.forEach(group => {
+                    const button = group.querySelector('button');
+                    const dropdown = group.querySelector('div[class*="absolute"]');
+                    
+                    if (button && dropdown) {
+                        group.addEventListener('mouseenter', () => {
+                            dropdown.style.opacity = '1';
+                            dropdown.style.visibility = 'visible';
+                        });
+                        
+                        group.addEventListener('mouseleave', () => {
+                            dropdown.style.opacity = '0';
+                            dropdown.style.visibility = 'hidden';
+                        });
+                    }
+                });
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            setupDesktopSubmenu();
+            highlightActiveSubmenu();
+        });
+        
+        // Also setup on page load in case DOMContentLoaded already fired
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', setupDesktopSubmenu);
+        } else {
+            setupDesktopSubmenu();
+        }
+
+        // Highlight active submenu parent based on current page
+        function highlightActiveSubmenu() {
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            
+            // Define submenu mappings
+            const submenuMap = {
+                'statistik.html': 'Transparansi',
+                'apbdes.html': 'Transparansi',
+                'penduduk.html': 'Transparansi',
+                'berita.html': 'Informasi',
+                'kalender-kegiatan.html': 'Informasi',
+                'galeri.html': 'Informasi',
+                'faq.html': 'Informasi',
+                'layanan-surat.html': 'Layanan',
+                'cek-bansos.html': 'Layanan',
+                'pengaduan.html': 'Layanan'
+            };
+            
+            // Handle standalone menu items (Beranda, Profil Desa, Kontak)
+            const standaloneMenus = {
+                'index.html': 'Beranda',
+                'profil.html': 'Profil Desa',
+                'kontak.html': 'Kontak'
+            };
+            
+            // Check if current page is a standalone menu
+            if (standaloneMenus[currentPage]) {
+                const desktopNav = document.querySelector('.hidden.lg\\:flex.items-center');
+                if (desktopNav) {
+                    const links = desktopNav.querySelectorAll('a');
+                    links.forEach(link => {
+                        if (link.getAttribute('href') === currentPage) {
+                            link.classList.add('bg-white', 'shadow-sm', 'text-primary-700', 'font-bold');
+                            link.classList.remove('text-slate-500');
+                        }
+                    });
+                }
+                
+                // Mobile highlight
+                const mobileMenu = document.getElementById('mobileMenu');
+                if (mobileMenu) {
+                    const links = mobileMenu.querySelectorAll('a');
+                    links.forEach(link => {
+                        if (link.getAttribute('href') === currentPage) {
+                            link.classList.add('bg-primary-50', 'text-primary-700', 'font-bold');
+                            link.classList.remove('text-slate-700');
+                        }
+                    });
+                }
+                return;
+            }
+            
+            const submenuType = submenuMap[currentPage];
+            if (!submenuType) return;
+            
+            // Desktop: Find and highlight the correct submenu button
+            const desktopNav = document.querySelector('.hidden.lg\\:flex.items-center');
+            if (desktopNav) {
+                const buttons = desktopNav.querySelectorAll('button');
+                buttons.forEach(button => {
+                    if (button.textContent.includes(submenuType)) {
+                        button.classList.add('bg-white', 'shadow-sm', 'text-primary-700', 'font-bold');
+                        button.classList.remove('text-slate-500');
+                        
+                        // Also highlight the active submenu item
+                        const dropdown = button.parentElement.querySelector('div[class*="absolute"]');
+                        if (dropdown) {
+                            const links = dropdown.querySelectorAll('a');
+                            links.forEach(link => {
+                                if (link.getAttribute('href') === currentPage) {
+                                    link.classList.add('bg-primary-50', 'text-primary-700', 'font-bold');
+                                    link.classList.remove('text-slate-700');
+                                }
+                            });
+                        }
+                    }
+                });
+            }
+            
+            // Mobile: Find and highlight the correct submenu button
+            const mobileMenu = document.getElementById('mobileMenu');
+            if (mobileMenu) {
+                const buttons = mobileMenu.querySelectorAll('button[onclick="toggleMobileSubmenu(this)"]');
+                buttons.forEach(button => {
+                    if (button.textContent.includes(submenuType)) {
+                        button.classList.add('text-primary-700', 'font-bold');
+                        button.classList.remove('text-slate-700');
+                    }
+                });
+            }
+        }
+
+        // Run on page load
+        document.addEventListener('DOMContentLoaded', highlightActiveSubmenu);
+    </script>
+
+    <header class="relative mt-32 mb-12 container mx-auto px-6">
+        <div class="relative w-full h-64 md:h-80 rounded-[2.5rem] overflow-hidden shadow-2xl shadow-slate-200 bg-gradient-to-r from-orange-600 to-orange-700">
+            <div class="absolute inset-0 flex flex-col justify-center px-10 md:px-20 text-white">
+                <span class="bg-white/20 backdrop-blur w-fit px-3 py-1 rounded-lg text-xs font-bold uppercase mb-4 shadow-lg">Transparansi & Partisipasi</span>
+                <h2 class="text-4xl md:text-5xl font-extrabold mb-4 leading-tight">Partisipasi Masyarakat</h2>
+                <p class="text-lg md:text-xl opacity-90 max-w-2xl">Berpartisipasi aktif dalam musyawarah desa dan pengambilan keputusan bersama untuk pembangunan desa.</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow container mx-auto px-6 pb-20">
+
+        <!-- Jadwal Musyawarah Section -->
+        <section class="mb-16">
+            <div class="flex items-center justify-between mb-8">
+                <div>
+                    <h3 class="text-3xl font-bold text-slate-900 mb-2">Jadwal Musyawarah Desa</h3>
+                    <p class="text-slate-600">Informasi lengkap jadwal musyawarah desa untuk 3 bulan ke depan</p>
+                </div>
+                <button class="hidden md:flex items-center gap-2 bg-orange-600 text-white px-6 py-3 rounded-full font-bold hover:bg-orange-700 transition shadow-lg">
+                    <i class="fa-solid fa-calendar-plus"></i> Daftar Peserta
+                </button>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Musyawarah Card 1 -->
+                <div class="bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden hover:shadow-xl transition">
+                    <div class="bg-gradient-to-r from-orange-500 to-orange-600 h-2"></div>
+                    <div class="p-6">
+                        <div class="flex items-start justify-between mb-4">
+                            <div>
+                                <h4 class="text-lg font-bold text-slate-900 mb-1">Musyawarah Pembangunan Infrastruktur</h4>
+                                <p class="text-sm text-slate-600">Pembahasan rencana pembangunan jalan desa</p>
+                            </div>
+                            <span class="bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-xs font-bold">Mendatang</span>
+                        </div>
+                        <div class="space-y-3 mb-6 text-sm text-slate-700">
+                            <div class="flex items-center gap-3">
+                                <i class="fa-solid fa-calendar text-orange-600 w-5"></i>
+                                <span><strong>Tanggal:</strong> 25 Januari 2026</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <i class="fa-solid fa-clock text-orange-600 w-5"></i>
+                                <span><strong>Waktu:</strong> 19:00 - 21:00 WITA</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <i class="fa-solid fa-location-dot text-orange-600 w-5"></i>
+                                <span><strong>Lokasi:</strong> Balai Desa</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <i class="fa-solid fa-users text-orange-600 w-5"></i>
+                                <span><strong>Peserta:</strong> 45 orang terdaftar</span>
+                            </div>
+                        </div>
+                        <button class="w-full bg-orange-100 text-orange-700 py-2 rounded-lg font-bold hover:bg-orange-200 transition">
+                            Lihat Detail & Daftar
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Musyawarah Card 2 -->
+                <div class="bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden hover:shadow-xl transition">
+                    <div class="bg-gradient-to-r from-orange-500 to-orange-600 h-2"></div>
+                    <div class="p-6">
+                        <div class="flex items-start justify-between mb-4">
+                            <div>
+                                <h4 class="text-lg font-bold text-slate-900 mb-1">Musyawarah Program Pemberdayaan</h4>
+                                <p class="text-sm text-slate-600">Diskusi program pelatihan keterampilan 2026</p>
+                            </div>
+                            <span class="bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-xs font-bold">Mendatang</span>
+                        </div>
+                        <div class="space-y-3 mb-6 text-sm text-slate-700">
+                            <div class="flex items-center gap-3">
+                                <i class="fa-solid fa-calendar text-orange-600 w-5"></i>
+                                <span><strong>Tanggal:</strong> 1 Februari 2026</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <i class="fa-solid fa-clock text-orange-600 w-5"></i>
+                                <span><strong>Waktu:</strong> 19:00 - 21:00 WITA</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <i class="fa-solid fa-location-dot text-orange-600 w-5"></i>
+                                <span><strong>Lokasi:</strong> Balai Desa</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <i class="fa-solid fa-users text-orange-600 w-5"></i>
+                                <span><strong>Peserta:</strong> 32 orang terdaftar</span>
+                            </div>
+                        </div>
+                        <button class="w-full bg-orange-100 text-orange-700 py-2 rounded-lg font-bold hover:bg-orange-200 transition">
+                            Lihat Detail & Daftar
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Musyawarah Card 3 -->
+                <div class="bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden hover:shadow-xl transition">
+                    <div class="bg-gradient-to-r from-orange-500 to-orange-600 h-2"></div>
+                    <div class="p-6">
+                        <div class="flex items-start justify-between mb-4">
+                            <div>
+                                <h4 class="text-lg font-bold text-slate-900 mb-1">Musyawarah Transparansi APBDes</h4>
+                                <p class="text-sm text-slate-600">Laporan pertanggungjawaban keuangan desa</p>
+                            </div>
+                            <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-bold">Selesai</span>
+                        </div>
+                        <div class="space-y-3 mb-6 text-sm text-slate-700">
+                            <div class="flex items-center gap-3">
+                                <i class="fa-solid fa-calendar text-orange-600 w-5"></i>
+                                <span><strong>Tanggal:</strong> 15 Januari 2026</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <i class="fa-solid fa-clock text-orange-600 w-5"></i>
+                                <span><strong>Waktu:</strong> 19:00 - 21:00 WITA</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <i class="fa-solid fa-location-dot text-orange-600 w-5"></i>
+                                <span><strong>Lokasi:</strong> Balai Desa</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <i class="fa-solid fa-users text-orange-600 w-5"></i>
+                                <span><strong>Peserta:</strong> 58 orang hadir</span>
+                            </div>
+                        </div>
+                        <button class="w-full bg-slate-100 text-slate-700 py-2 rounded-lg font-bold hover:bg-slate-200 transition">
+                            Lihat Laporan & Hasil
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Forum Diskusi Section -->
+        <section class="mb-16">
+            <div class="flex items-center justify-between mb-8">
+                <div>
+                    <h3 class="text-3xl font-bold text-slate-900 mb-2">Forum Diskusi Masyarakat</h3>
+                    <p class="text-slate-600">Ruang diskusi terbuka untuk aspirasi dan masukan masyarakat</p>
+                </div>
+                <button class="hidden md:flex items-center gap-2 bg-orange-600 text-white px-6 py-3 rounded-full font-bold hover:bg-orange-700 transition shadow-lg">
+                    <i class="fa-solid fa-plus"></i> Buat Topik Baru
+                </button>
+            </div>
+
+            <div class="space-y-4">
+                <!-- Forum Topic 1 -->
+                <div class="bg-white rounded-2xl shadow-lg border border-slate-100 p-6 hover:shadow-xl transition">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="flex-1">
+                            <h4 class="text-lg font-bold text-slate-900 mb-2">Perbaikan Jalan Menuju Sekolah</h4>
+                            <p class="text-slate-600 mb-3">Diskusi tentang kondisi jalan yang rusak di depan SD Sungai Pitung dan rencana perbaikannya.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-xs font-bold">Infrastruktur</span>
+                                <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs font-bold">Pendidikan</span>
+                            </div>
+                        </div>
+                        <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-bold whitespace-nowrap">Aktif</span>
+                    </div>
+                    <div class="flex items-center justify-between text-sm text-slate-600 border-t border-slate-100 pt-4">
+                        <div class="flex gap-6">
+                            <span><i class="fa-solid fa-comments mr-2 text-orange-600"></i> 12 Komentar</span>
+                            <span><i class="fa-solid fa-eye mr-2 text-orange-600"></i> 156 Views</span>
+                            <span><i class="fa-solid fa-thumbs-up mr-2 text-orange-600"></i> 28 Dukungan</span>
+                        </div>
+                        <button class="text-orange-600 font-bold hover:text-orange-700">Baca Selengkapnya →</button>
+                    </div>
+                </div>
+
+                <!-- Forum Topic 2 -->
+                <div class="bg-white rounded-2xl shadow-lg border border-slate-100 p-6 hover:shadow-xl transition">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="flex-1">
+                            <h4 class="text-lg font-bold text-slate-900 mb-2">Program Kesehatan Ibu Hamil</h4>
+                            <p class="text-slate-600 mb-3">Masukan tentang program pemeriksaan kesehatan gratis untuk ibu hamil dan ibu menyusui.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-red-100 text-red-700 px-3 py-1 rounded-full text-xs font-bold">Kesehatan</span>
+                                <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-xs font-bold">Pemberdayaan</span>
+                            </div>
+                        </div>
+                        <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-bold whitespace-nowrap">Aktif</span>
+                    </div>
+                    <div class="flex items-center justify-between text-sm text-slate-600 border-t border-slate-100 pt-4">
+                        <div class="flex gap-6">
+                            <span><i class="fa-solid fa-comments mr-2 text-orange-600"></i> 8 Komentar</span>
+                            <span><i class="fa-solid fa-eye mr-2 text-orange-600"></i> 94 Views</span>
+                            <span><i class="fa-solid fa-thumbs-up mr-2 text-orange-600"></i> 15 Dukungan</span>
+                        </div>
+                        <button class="text-orange-600 font-bold hover:text-orange-700">Baca Selengkapnya →</button>
+                    </div>
+                </div>
+
+                <!-- Forum Topic 3 -->
+                <div class="bg-white rounded-2xl shadow-lg border border-slate-100 p-6 hover:shadow-xl transition">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="flex-1">
+                            <h4 class="text-lg font-bold text-slate-900 mb-2">Pengembangan UMKM Lokal</h4>
+                            <p class="text-slate-600 mb-3">Diskusi tentang peluang pengembangan UMKM dan akses ke pasar yang lebih luas.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-bold">Ekonomi</span>
+                                <span class="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-xs font-bold">UMKM</span>
+                            </div>
+                        </div>
+                        <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-bold whitespace-nowrap">Aktif</span>
+                    </div>
+                    <div class="flex items-center justify-between text-sm text-slate-600 border-t border-slate-100 pt-4">
+                        <div class="flex gap-6">
+                            <span><i class="fa-solid fa-comments mr-2 text-orange-600"></i> 15 Komentar</span>
+                            <span><i class="fa-solid fa-eye mr-2 text-orange-600"></i> 203 Views</span>
+                            <span><i class="fa-solid fa-thumbs-up mr-2 text-orange-600"></i> 42 Dukungan</span>
+                        </div>
+                        <button class="text-orange-600 font-bold hover:text-orange-700">Baca Selengkapnya →</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Polling Section -->
+        <section class="mb-16">
+            <h3 class="text-3xl font-bold text-slate-900 mb-8">Polling Aspirasi Masyarakat</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Poll 1 -->
+                <div class="bg-white rounded-2xl shadow-lg border border-slate-100 p-6">
+                    <h4 class="text-lg font-bold text-slate-900 mb-4">Program Prioritas Tahun 2026</h4>
+                    <p class="text-slate-600 mb-6 text-sm">Pilih 3 program yang paling Anda prioritaskan untuk pembangunan desa tahun ini.</p>
+                    <div class="space-y-3">
+                        <label class="flex items-center gap-3 p-3 rounded-lg hover:bg-slate-50 cursor-pointer transition">
+                            <input type="checkbox" class="w-5 h-5 rounded text-orange-600">
+                            <span class="flex-1 font-medium text-slate-700">Perbaikan Infrastruktur Jalan</span>
+                            <span class="text-sm text-slate-500">45%</span>
+                        </label>
+                        <label class="flex items-center gap-3 p-3 rounded-lg hover:bg-slate-50 cursor-pointer transition">
+                            <input type="checkbox" class="w-5 h-5 rounded text-orange-600">
+                            <span class="flex-1 font-medium text-slate-700">Program Kesehatan Masyarakat</span>
+                            <span class="text-sm text-slate-500">38%</span>
+                        </label>
+                        <label class="flex items-center gap-3 p-3 rounded-lg hover:bg-slate-50 cursor-pointer transition">
+                            <input type="checkbox" class="w-5 h-5 rounded text-orange-600">
+                            <span class="flex-1 font-medium text-slate-700">Pemberdayaan UMKM</span>
+                            <span class="text-sm text-slate-500">52%</span>
+                        </label>
+                        <label class="flex items-center gap-3 p-3 rounded-lg hover:bg-slate-50 cursor-pointer transition">
+                            <input type="checkbox" class="w-5 h-5 rounded text-orange-600">
+                            <span class="flex-1 font-medium text-slate-700">Peningkatan Pendidikan</span>
+                            <span class="text-sm text-slate-500">41%</span>
+                        </label>
+                    </div>
+                    <button class="w-full mt-6 bg-orange-600 text-white py-3 rounded-lg font-bold hover:bg-orange-700 transition">
+                        Kirim Suara Saya
+                    </button>
+                </div>
+
+                <!-- Poll 2 -->
+                <div class="bg-white rounded-2xl shadow-lg border border-slate-100 p-6">
+                    <h4 class="text-lg font-bold text-slate-900 mb-4">Waktu Musyawarah Desa</h4>
+                    <p class="text-slate-600 mb-6 text-sm">Waktu mana yang paling sesuai untuk musyawarah desa?</p>
+                    <div class="space-y-3">
+                        <label class="flex items-center gap-3 p-3 rounded-lg hover:bg-slate-50 cursor-pointer transition">
+                            <input type="radio" name="waktu" class="w-5 h-5 text-orange-600">
+                            <span class="flex-1 font-medium text-slate-700">Pagi (08:00 - 12:00)</span>
+                            <span class="text-sm text-slate-500">18%</span>
+                        </label>
+                        <label class="flex items-center gap-3 p-3 rounded-lg hover:bg-slate-50 cursor-pointer transition">
+                            <input type="radio" name="waktu" class="w-5 h-5 text-orange-600">
+                            <span class="flex-1 font-medium text-slate-700">Siang (12:00 - 17:00)</span>
+                            <span class="text-sm text-slate-500">22%</span>
+                        </label>
+                        <label class="flex items-center gap-3 p-3 rounded-lg hover:bg-slate-50 cursor-pointer transition">
+                            <input type="radio" name="waktu" class="w-5 h-5 text-orange-600">
+                            <span class="flex-1 font-medium text-slate-700">Malam (19:00 - 21:00)</span>
+                            <span class="text-sm text-slate-500">60%</span>
+                        </label>
+                    </div>
+                    <button class="w-full mt-6 bg-orange-600 text-white py-3 rounded-lg font-bold hover:bg-orange-700 transition">
+                        Kirim Suara Saya
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Statistik Partisipasi -->
+        <section class="mb-16">
+            <h3 class="text-3xl font-bold text-slate-900 mb-8">Statistik Partisipasi Masyarakat</h3>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div class="bg-white rounded-2xl shadow-lg border border-slate-100 p-6 text-center">
+                    <div class="text-4xl font-bold text-orange-600 mb-2">156</div>
+                    <p class="text-slate-600 font-medium">Peserta Aktif</p>
+                    <p class="text-sm text-slate-500 mt-2">Bulan ini</p>
+                </div>
+                <div class="bg-white rounded-2xl shadow-lg border border-slate-100 p-6 text-center">
+                    <div class="text-4xl font-bold text-orange-600 mb-2">12</div>
+                    <p class="text-slate-600 font-medium">Musyawarah Tahun Ini</p>
+                    <p class="text-sm text-slate-500 mt-2">Selesai & Mendatang</p>
+                </div>
+                <div class="bg-white rounded-2xl shadow-lg border border-slate-100 p-6 text-center">
+                    <div class="text-4xl font-bold text-orange-600 mb-2">48</div>
+                    <p class="text-slate-600 font-medium">Topik Diskusi</p>
+                    <p class="text-sm text-slate-500 mt-2">Forum Aktif</p>
+                </div>
+                <div class="bg-white rounded-2xl shadow-lg border border-slate-100 p-6 text-center">
+                    <div class="text-4xl font-bold text-orange-600 mb-2">87%</div>
+                    <p class="text-slate-600 font-medium">Tingkat Kepuasan</p>
+                    <p class="text-sm text-slate-500 mt-2">Survei Terakhir</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+        <footer class="bg-slate-900 text-white pt-12 md:pt-20 pb-6 md:pb-8 mt-auto rounded-t-[3rem]">
+        <div class="container mx-auto px-3 md:px-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-10 mb-12 border-b border-slate-800 pb-12">
+                <div class="col-span-1 sm:col-span-2 lg:col-span-1">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-9 md:w-10 h-9 md:h-10 bg-primary-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <i class="fa-solid fa-leaf"></i>
+                        </div>
+                        <span class="font-bold text-lg md:text-2xl">Sungai Pitung</span>
+                    </div>
+                    <p class="text-slate-400 text-xs md:text-sm leading-relaxed max-w-sm mb-6">
+                        Website Resmi Pemerintah Desa Sungai Pitung. <br>
+                        Kecamatan Alalak, Kabupaten Barito Kuala, Kalimantan Selatan.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-9 md:w-10 h-9 md:h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary-600 transition flex-shrink-0"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="w-9 md:w-10 h-9 md:h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary-600 transition flex-shrink-0"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="w-9 md:w-10 h-9 md:h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary-600 transition flex-shrink-0"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-sm md:text-lg mb-6">Akses Cepat</h4>
+                    <ul class="space-y-3 text-xs md:text-sm text-slate-400">
+                        <li class="flex gap-3"><i class="fa-solid fa-link flex-shrink-0 mt-0.5"></i> <a href="layanan-surat.html" class="hover:text-primary-400 transition">Administrasi Surat</a></li>
+                        <li class="flex gap-3"><i class="fa-solid fa-link flex-shrink-0 mt-0.5"></i> <a href="cek-bansos.html" class="hover:text-primary-400 transition">Cek Bansos</a></li>
+                        <li class="flex gap-3"><i class="fa-solid fa-link flex-shrink-0 mt-0.5"></i> <a href="pengaduan.html" class="hover:text-primary-400 transition">Pengaduan Warga</a></li>
+                        <li class="flex gap-3"><i class="fa-solid fa-link flex-shrink-0 mt-0.5"></i> <a href="umkm.html" class="hover:text-primary-400 transition">UMKM Desa</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-sm md:text-lg mb-6">Informasi</h4>
+                    <ul class="space-y-3 text-xs md:text-sm text-slate-400">
+                        <li class="flex gap-3"><i class="fa-solid fa-file flex-shrink-0 mt-0.5"></i> <a href="profil.html" class="hover:text-primary-400 transition">Profil Desa</a></li>
+                        <li class="flex gap-3"><i class="fa-solid fa-chart-bar flex-shrink-0 mt-0.5"></i> <a href="statistik.html" class="hover:text-primary-400 transition">Statistik</a></li>
+                        <li class="flex gap-3"><i class="fa-solid fa-map flex-shrink-0 mt-0.5"></i> <a href="peta-potensi.html" class="hover:text-primary-400 transition">Peta Potensi</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-sm md:text-lg mb-6">Kontak & Lokasi</h4>
+                    <ul class="space-y-3 text-xs md:text-sm text-slate-400">
+                        <li class="flex gap-3"><i class="fa-solid fa-location-dot flex-shrink-0 mt-0.5"></i> <span>Jl. Poros Desa No. 1, Sungai Pitung, Barito Kuala</span></li>
+                        <li class="flex gap-3"><i class="fa-solid fa-envelope flex-shrink-0 mt-0.5"></i> <a href="mailto:admin@sungaipitung.desa.id" class="hover:text-primary-400 transition">admin@sungaipitung.desa.id</a></li>
+                        <li class="flex gap-3"><i class="fa-solid fa-phone flex-shrink-0 mt-0.5"></i> <a href="tel:05111234567" class="hover:text-primary-400 transition">(0511) 123-4567</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row justify-between items-center text-xs text-slate-500 gap-4">
+                <p>&copy; 2026 Pemerintah Desa Sungai Pitung. All rights reserved.</p>
+                <p>Dikembangkan oleh Tim IT Desa (SID)</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            if (!mobileMenu.classList.contains('hidden')) {
+                mobileMenu.style.maxHeight = mobileMenu.scrollHeight + 'px';
+            } else {
+                mobileMenu.style.maxHeight = '0';
+            }
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

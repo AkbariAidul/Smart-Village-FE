@@ -1,0 +1,371 @@
+╔════════════════════════════════════════════════════════════════════════════════╗
+║                                                                                ║
+║         SMART VILLAGE PERN STACK - ROLE-BASED ACCESS CONTROL (RBAC)           ║
+║                    Desa Sungai Pitung, Barito Kuala                           ║
+║                                                                                ║
+╚════════════════════════════════════════════════════════════════════════════════╝
+
+📋 RINGKASAN SISTEM ROLE
+═══════════════════════════════════════════════════════════════════════════════
+
+Sistem akan memiliki 4 ROLE dengan akses dan tampilan yang berbeda:
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ 1. GUEST (Pengunjung Tanpa Login)                                           │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ • Akses: Informasi publik saja                                              │
+│ • Fitur: Lihat berita, kalender, galeri, UMKM, peta potensi                │
+│ • Navbar: [Logo] [Menu Publik] [Login] [Daftar]                            │
+│ • Dashboard: Tidak ada                                                      │
+│ • Contoh: Orang yang baru pertama kali kunjung website                      │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ 2. USER (Penduduk/Pengunjung Terdaftar)                                     │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ • Akses: Layanan publik + partisipasi                                       │
+│ • Fitur: Buat surat, pengaduan, daftar program, partisipasi musyawarah     │
+│ • Navbar: [Logo] [Menu] [🔔] [👤 Nama] [Logout]                           │
+│ • Dashboard: User dashboard dengan statistik personal                       │
+│ • Contoh: Penduduk desa yang sudah login                                    │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ 3. ADMIN (Aparat/Perangkat Desa)                                            │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ • Akses: Kelola konten & layanan                                            │
+│ • Fitur: CRUD berita, kalender, program; Approve surat & pengaduan         │
+│ • Navbar: [Logo] [Menu] [🔔] [👤 Admin] [Logout]                          │
+│ • Sidebar: Dashboard, Berita, Kalender, Program, Surat, Pengaduan, dll     │
+│ • Dashboard: Admin dashboard dengan pending tasks                           │
+│ • Contoh: Sekretaris desa, bendahara, kepala bidang                        │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ 4. SUPER ADMIN (Kepala Desa)                                                │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ • Akses: Kontrol penuh sistem                                               │
+│ • Fitur: Kelola user, admin, pengaturan, audit log, backup                 │
+│ • Navbar: [Logo] [Menu] [🔔] [👤 Super Admin] [Logout]                    │
+│ • Sidebar: Dashboard, User, Admin, Settings, Audit Log, Backup, Laporan    │
+│ • Dashboard: Super admin dashboard dengan system overview                   │
+│ • Contoh: Kepala desa                                                       │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+
+📊 PERMISSION MATRIX
+═══════════════════════════════════════════════════════════════════════════════
+
+                        Guest  User  Admin  Super Admin
+Lihat Berita             ✅    ✅    ✅      ✅
+Kelola Berita            ❌    ❌    ✅      ✅
+Buat Surat               ❌    ✅    ✅      ✅
+Approve Surat            ❌    ❌    ✅      ✅
+Buat Pengaduan           ❌    ✅    ✅      ✅
+Kelola Pengaduan         ❌    ❌    ✅      ✅
+Daftar Program           ❌    ✅    ✅      ✅
+Kelola Program           ❌    ❌    ✅      ✅
+Partisipasi              ❌    ✅    ✅      ✅
+Kelola User              ❌    ❌    ❌      ✅
+Kelola Admin             ❌    ❌    ❌      ✅
+Pengaturan Sistem        ❌    ❌    ❌      ✅
+Audit Log                ❌    ❌    ❌      ✅
+
+
+🎨 UI/UX LAYOUT DIFFERENCES
+═══════════════════════════════════════════════════════════════════════════════
+
+GUEST LAYOUT:
+┌─────────────────────────────────────────┐
+│ [Logo] [Menu Publik] [Login] [Daftar]   │
+├─────────────────────────────────────────┤
+│ Dashboard (Limited)                     │
+│ [Silakan login untuk akses penuh]       │
+└─────────────────────────────────────────┘
+
+USER LAYOUT:
+┌──────────────────────────────────────────┐
+│ [Logo] [Menu] [🔔] [👤 John] [⋮]        │
+├──────────────────────────────────────────┤
+│ Dashboard User                           │
+│ Selamat datang, John Doe                 │
+│ Statistik: Surat: 5 | Pengaduan: 2 | .. │
+│ Quick Links: [Surat] [Pengaduan] [...]  │
+└──────────────────────────────────────────┘
+
+ADMIN LAYOUT:
+┌──────────────────────────────────────────┐
+│ [Logo] [Menu] [🔔] [👤 Admin] [⋮]       │
+├──────────────────────────────────────────┤
+│ ┌─────────────┐ ┌──────────────────────┐ │
+│ │  SIDEBAR    │ │ Admin Dashboard      │ │
+│ │             │ │ Statistik:           │ │
+│ │ • Dashboard │ │ • Berita: 25         │ │
+│ │ • Berita    │ │ • Pengaduan: 15      │ │
+│ │ • Kalender  │ │ • Surat: 42          │ │
+│ │ • Program   │ │ Pending:             │ │
+│ │ • Surat     │ │ • Surat: 5           │ │
+│ │ • Pengaduan │ │ • Pengaduan: 3       │ │
+│ │ • Laporan   │ │                      │ │
+│ │ [Logout]    │ │                      │ │
+│ └─────────────┘ └──────────────────────┘ │
+└──────────────────────────────────────────┘
+
+SUPER ADMIN LAYOUT:
+┌──────────────────────────────────────────┐
+│ [Logo] [Menu] [🔔] [👤 Super Admin] [⋮] │
+├──────────────────────────────────────────┤
+│ ┌─────────────┐ ┌──────────────────────┐ │
+│ │  SIDEBAR    │ │ Super Admin Dashboard│ │
+│ │             │ │ System Overview:     │ │
+│ │ • Dashboard │ │ • Total User: 250    │ │
+│ │ • User      │ │ • Total Admin: 8     │ │
+│ │ • Admin     │ │ • Berita: 25         │ │
+│ │ • Settings  │ │ Health Check:        │ │
+│ │ • Audit Log │ │ • Database: ✅       │ │
+│ │ • Backup    │ │ • API: ✅            │ │
+│ │ • Laporan   │ │                      │ │
+│ │ [Logout]    │ │                      │ │
+│ └─────────────┘ └──────────────────────┘ │
+└──────────────────────────────────────────┘
+
+
+🔐 AUTHENTICATION FLOW
+═══════════════════════════════════════════════════════════════════════════════
+
+1. User buka website
+   ↓
+2. Jika belum login → GUEST (akses publik)
+   ↓
+3. User klik Login → Masuk email + password
+   ↓
+4. Backend validasi credentials
+   ↓
+5. Generate JWT token + refresh token
+   ↓
+6. Frontend simpan token di localStorage
+   ↓
+7. User sekarang → USER/ADMIN/SUPER ADMIN (sesuai role)
+   ↓
+8. Setiap request, kirim token di header Authorization
+   ↓
+9. Backend verify token & check permission
+   ↓
+10. Jika authorized → lanjut ke controller
+    Jika tidak → return 403 Forbidden
+
+
+📋 HALAMAN PER ROLE
+═══════════════════════════════════════════════════════════════════════════════
+
+GUEST PAGES (11 halaman):
+✅ Home/Dashboard (limited)
+✅ Profil Desa
+✅ Berita
+✅ Kalender Kegiatan
+✅ Galeri
+✅ UMKM
+✅ Peta Potensi
+✅ FAQ
+✅ Kontak
+✅ Login
+✅ Register
+
+USER PAGES (+ 11 halaman Guest + 10 halaman baru):
+✅ User Dashboard
+✅ User Profile
+✅ User History
+✅ Buat Surat
+✅ Tracking Surat
+✅ Buat Pengaduan
+✅ Tracking Pengaduan
+✅ Daftar Program
+✅ Partisipasi Musyawarah
+✅ Forum Diskusi
+✅ Polling
+
+ADMIN PAGES (+ 21 halaman User + 11 halaman baru):
+✅ Admin Dashboard
+✅ Manage Berita (CRUD)
+✅ Manage Kalender (CRUD)
+✅ Manage Program (CRUD)
+✅ Approve Surat
+✅ Manage Pengaduan
+✅ Manage Musyawarah
+✅ Manage UMKM
+✅ Upload Galeri
+✅ Laporan
+✅ Manage Konten
+
+SUPER ADMIN PAGES (+ 32 halaman Admin + 8 halaman baru):
+✅ Super Admin Dashboard
+✅ Manage Users
+✅ Manage Admins
+✅ System Settings
+✅ Audit Log
+✅ Backup & Restore
+✅ Laporan Komprehensif
+✅ Role & Permission Management
+
+
+💾 DATABASE TABLES NEEDED
+═══════════════════════════════════════════════════════════════════════════════
+
+Core Tables (5):
+• users - Data user (penduduk)
+• admins - Data admin (aparat desa)
+• roles - Role (user, admin, super_admin)
+• permissions - Permission per role
+• role_permissions - Mapping role ke permission
+
+Content Tables (8):
+• berita - Berita & informasi
+• kalender - Kalender kegiatan
+• program - Program pemberdayaan
+• surat - Permohonan surat
+• pengaduan - Pengaduan masyarakat
+• musyawarah - Musyawarah & partisipasi
+• umkm - Data UMKM
+• galeri - Galeri foto/video
+
+System Tables (3):
+• audit_log - Audit trail
+• settings - Pengaturan sistem
+• notifikasi - Notifikasi user
+
+TOTAL: 16 tables
+
+
+🔗 API ENDPOINTS PATTERN
+═══════════════════════════════════════════════════════════════════════════════
+
+Public Endpoints (Guest):
+GET /api/berita
+GET /api/kalender
+GET /api/umkm
+GET /api/galeri
+GET /api/profil
+
+User Endpoints:
+POST /api/auth/login
+POST /api/auth/register
+GET /api/users/profile
+PUT /api/users/profile
+POST /api/surat
+GET /api/surat
+POST /api/pengaduan
+GET /api/pengaduan
+
+Admin Endpoints:
+POST /api/berita
+PUT /api/berita/:id
+DELETE /api/berita/:id
+POST /api/surat/:id/approve
+PUT /api/pengaduan/:id/status
+GET /api/admin/dashboard
+GET /api/admin/laporan
+
+Super Admin Endpoints:
+GET /api/superadmin/users
+POST /api/superadmin/admins
+PUT /api/superadmin/settings
+GET /api/superadmin/audit-log
+POST /api/superadmin/backup
+
+
+🚀 IMPLEMENTATION PRIORITY
+═══════════════════════════════════════════════════════════════════════════════
+
+Phase 1: Authentication & Authorization (Week 1-2)
+✓ Setup JWT authentication
+✓ Create login/register pages
+✓ Create role-based middleware
+✓ Create permission system
+
+Phase 2: User Features (Week 3-4)
+✓ User dashboard
+✓ User profile
+✓ Buat surat & pengaduan
+✓ Tracking status
+
+Phase 3: Admin Features (Week 5-6)
+✓ Admin dashboard
+✓ Manage berita, kalender, program
+✓ Approve workflow
+✓ Admin analytics
+
+Phase 4: Super Admin Features (Week 7-8)
+✓ Super admin dashboard
+✓ User management
+✓ Admin management
+✓ System settings & audit log
+
+Phase 5: Testing & Deployment (Week 9+)
+✓ Testing & QA
+✓ Performance optimization
+✓ Security audit
+✓ Deployment
+
+
+📚 DOKUMENTASI YANG TERSEDIA
+═══════════════════════════════════════════════════════════════════════════════
+
+1. ROLE_BASED_ACCESS_CONTROL.md (15 KB)
+   → Detail lengkap setiap role, permission matrix, workflow
+
+2. DATABASE_SCHEMA_DESIGN.md (16 KB)
+   → Schema database PostgreSQL, relationships, indexes
+
+3. API_ENDPOINTS_DESIGN.md (17 KB)
+   → Semua API endpoints dengan request/response examples
+
+4. PERN_STACK_IMPLEMENTATION_GUIDE.md (18 KB)
+   → Panduan implementasi teknis, project structure, middleware
+
+5. PERN_RBAC_QUICK_REFERENCE.md (13 KB)
+   → Quick reference guide untuk development
+
+6. ROLE_COMPARISON_SUMMARY.md (sudah ada)
+   → Perbandingan visual antar role
+
+
+🎯 KEY TAKEAWAYS
+═══════════════════════════════════════════════════════════════════════════════
+
+✅ 4 Role dengan akses berbeda: Guest, User, Admin, Super Admin
+✅ Setiap role memiliki dashboard & UI yang berbeda
+✅ Permission-based access control untuk setiap endpoint
+✅ JWT token untuk authentication
+✅ 16 database tables untuk mendukung semua fitur
+✅ 40+ API endpoints untuk semua role
+✅ Responsive design untuk semua device
+✅ Audit logging untuk tracking aktivitas admin
+✅ Backup & restore untuk data protection
+✅ Notification system untuk user engagement
+
+
+💡 NEXT STEPS
+═══════════════════════════════════════════════════════════════════════════════
+
+1. Review dokumentasi yang sudah dibuat
+2. Setup backend dengan Node.js + Express
+3. Setup database PostgreSQL
+4. Implement authentication & authorization
+5. Create user features
+6. Create admin features
+7. Create super admin features
+8. Testing & QA
+9. Deployment
+
+
+═══════════════════════════════════════════════════════════════════════════════
+
+Dokumentasi ini memberikan blueprint lengkap untuk implementasi Smart Village
+dengan PERN stack dan role-based access control system.
+
+Semua dokumentasi sudah tersedia dalam format markdown untuk referensi lebih
+lanjut selama development.
+
+Good luck dengan development! 🚀
+
+═══════════════════════════════════════════════════════════════════════════════
